@@ -7,12 +7,15 @@
 
  #ifndef __ARM_H
  #define __ARM_H 2016
- class Arm {
+ class Arm : public RoboPart{
   private:
     double passiveDraw;
     double activeDraw;
-    bool lasers;    
+    bool laser;    
   public:
-    Arm(); 
+    Arm(string iname, int iSN, double iweight, double icost, string idescription, string itype, double ipassiveDraw, double iactiveDraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription, itype) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), laser(ilaser){}
+    double getpassiveDraw();
+    double getactiveDraw();
+    bool getLaser();
  };
  #endif
