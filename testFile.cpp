@@ -1,5 +1,6 @@
  #include "Arm.h"
  #include "RoboPart.h"
+ #include "Leg.h"
 
  using namespace std;
 
@@ -33,6 +34,16 @@
     cout << "The passive draw on the arm is " << arm.getactiveDraw() << "\n";
     cout << "It has a laser on the arm:  " << arm.getLaser() << "\n";
 
+    //test leg
+    type = "leg";
+    passiveDraw = 32;
+    activeDraw = 97;
+    int speed = 40;
+    Leg leg(name,SN,weight,cost,description,type,passiveDraw,activeDraw,speed);
+    cout << "\nThe type of the part is: " << leg.getType() << "\n";
+    cout << "The passive draw on the arm is " << leg.getpassiveDraw() << "\n";
+    cout << "The passive draw on the arm is " << leg.getactiveDraw() << "\n";
+    cout << "The speed of the leg is " << leg.getSpeed() << "\n";
 
 
     
