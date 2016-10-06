@@ -13,52 +13,43 @@
     double weight = 1234.12;
     double cost = 1234.12;
     string description = "This is a great description";
-    string type = "garbage";   
     
-    //test RoboPart getters
-    RoboPart garbage(name, SN, weight, cost, description, type);
-    cout << "The name of the part is: " << garbage.getName() << "\n";
-    cout << "The SN of the part is: " << garbage.getSN() << "\n";
-    cout << "The weight of the part is: " << garbage.getWeight() << "\n";
-    cout << "The cost of the part is: " << garbage.getCost() << "\n";
-    cout << "The description of the part is: " << garbage.getDescription() << "\n";
-    cout << "The type of the part is: " << garbage.getType() << "\n";
-
-
     //test arm
-    type = "arm";
     double passiveDraw = 27;
     double activeDraw = 34;
     bool laser = true;
-    Arm arm(name,SN,weight,cost,description,type,passiveDraw,activeDraw,laser);
-    cout << "\nThe type of the part is: " << arm.getType() << "\n";
+    Arm arm(name,SN,weight,cost,description,passiveDraw,activeDraw,laser);
+    //test RoboPart getters
+    cout << "The name of the part is: " << arm.getName() << "\n";
+    cout << "The SN of the part is: " << arm.getSN() << "\n";
+    cout << "The weight of the part is: " << arm.getWeight() << "\n";
+    cout << "The cost of the part is: " << arm.getCost() << "\n";
+    cout << "The description of the part is: " << arm.getDescription() << "\n";
+    cout << "The type of the part is: " << arm.getType() << "\n";
     cout << "The passive draw on the arm is " << arm.getpassiveDraw() << " units of charge per day.\n";
     cout << "The passive draw on the arm is " << arm.getactiveDraw() << " units of charge per day.\n";
     cout << "It has a laser on the arm:  " << arm.getLaser() << "\n";
 
     //test leg
-    type = "leg";
     passiveDraw = 32;
     activeDraw = 97;
     int speed = 40;
-    Leg leg(name,SN,weight,cost,description,type,passiveDraw,activeDraw,speed);
+    Leg leg(name,SN,weight,cost,description,passiveDraw,activeDraw,speed);
     cout << "\nThe type of the part is: " << leg.getType() << "\n";
     cout << "The passive draw on the arm is " << leg.getpassiveDraw() << " units of charge per day.\n";
     cout << "The passive draw on the arm is " << leg.getactiveDraw() << " units of charge per day.\n";
     cout << "The speed of the leg is " << leg.getSpeed() << ".\n";
 
     //test battery
-    type = "battery";
     int charge = 90;
-    Battery battery(name,SN,weight,cost,description,type,charge);
+    Battery battery(name,SN,weight,cost,description,charge);
     cout << "\nThe type of the part is: " << battery.getType() << "\n";
     cout << "The battery has " << battery.getCharge() << " units of charge.\n";
 
     //test arm
-    type = "Head";
     double draw = 12;
     laser = true;
-    Head head(name,SN,weight,cost,description,type,draw,laser);
+    Head head(name,SN,weight,cost,description,draw,laser);
     cout << "\nThe type of the part is: " << head.getType() << "\n";
     cout << "The draw on the arm is " << head.getDraw() << " units of charge per day.\n";
     cout << "It has a laser on the head:  " << head.getLaser() << "\n";

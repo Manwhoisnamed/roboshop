@@ -10,7 +10,8 @@
   private:
     double charge;    
   public:
-    Battery(string iname, int iSN, double iweight, double icost, string idescription, string itype, double icharge) : RoboPart(iname, iSN, iweight, icost, idescription, itype) , charge(icharge) {}
+    Battery(string iname, int iSN, double iweight, double icost, string idescription, double icharge) : RoboPart(iname, iSN, iweight, icost, idescription) , charge(icharge) {}
     double getCharge();
+    string getType() override;
  };
  #endif

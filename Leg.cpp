@@ -4,6 +4,10 @@
  
  using namespace std;
 
+ string Leg::getType(){
+	return "leg";
+ }
+
  double Leg::getpassiveDraw(){
  	return Leg::passiveDraw;
  }

@@ -7,14 +7,13 @@
  #define __ROBOPART_H 2016
  class RoboPart {
   public:
-    RoboPart(string iname, int iSN, double iweight, double icost, string idescription, string itype):
-	name(iname), SN(iSN), weight(iweight), cost(icost), description(idescription), type(itype){} 
+    RoboPart(string iname, int iSN, double iweight, double icost, string idescription): name(iname), SN(iSN), weight(iweight), cost(icost), description(idescription){} 
     string getName();
     int getSN();
     double getWeight();
     double getCost();
     string getDescription();
-    string getType();
+    virtual string getType(){return "";}
   private:
     string name;
     int SN;

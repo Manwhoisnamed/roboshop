@@ -13,8 +13,9 @@
     double draw;
     bool laser;    
   public:
-    Head(string iname, int iSN, double iweight, double icost, string idescription, string itype, double idraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription, itype) , draw(idraw), laser(ilaser){}
+    Head(string iname, int iSN, double iweight, double icost, string idescription, double idraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription) , draw(idraw), laser(ilaser){}
     double getDraw();
     bool getLaser();
+    string getType() override;
  };
  #endif

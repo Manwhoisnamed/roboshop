@@ -21,7 +21,3 @@
  string RoboPart::getDescription(){
     return RoboPart::description;
  }
-
- string RoboPart::getType(){
-    return RoboPart::type;
- }

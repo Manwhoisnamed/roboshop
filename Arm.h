@@ -13,9 +13,10 @@
     double activeDraw;
     bool laser;    
   public:
-    Arm(string iname, int iSN, double iweight, double icost, string idescription, string itype, double ipassiveDraw, double iactiveDraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription, itype) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), laser(ilaser){}
+    Arm(string iname, int iSN, double iweight, double icost, string idescription, double ipassiveDraw, double iactiveDraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), laser(ilaser){}
     double getpassiveDraw();
     double getactiveDraw();
     bool getLaser();
+    string getType() override;
  };
  #endif

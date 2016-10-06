@@ -13,9 +13,10 @@
     double activeDraw;
     int speed;    
   public:
-    Leg(string iname, int iSN, double iweight, double icost, string idescription, string itype, double ipassiveDraw, double iactiveDraw, int ispeed) : RoboPart(iname, iSN, iweight, icost, idescription, itype) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), speed(ispeed){}
+    Leg(string iname, int iSN, double iweight, double icost, string idescription, double ipassiveDraw, double iactiveDraw, int ispeed) : RoboPart(iname, iSN, iweight, icost, idescription) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), speed(ispeed){}
     double getpassiveDraw();
     double getactiveDraw();
     int getSpeed();
+    string getType() override;
  };
  #endif
