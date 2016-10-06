@@ -2,6 +2,7 @@
  #include "RoboPart.h"
  #include "Leg.h"
  #include "Battery.h"
+ #include "Head.h"
 
  using namespace std;
 
@@ -53,5 +54,13 @@
     cout << "\nThe type of the part is: " << battery.getType() << "\n";
     cout << "The battery has " << battery.getCharge() << " units of charge.\n";
 
+    //test arm
+    type = "Head";
+    double draw = 12;
+    laser = true;
+    Head head(name,SN,weight,cost,description,type,draw,laser);
+    cout << "\nThe type of the part is: " << head.getType() << "\n";
+    cout << "The draw on the arm is " << head.getDraw() << " units of charge per day.\n";
+    cout << "It has a laser on the head:  " << head.getLaser() << "\n";
     
  }
