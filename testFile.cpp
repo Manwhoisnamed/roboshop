@@ -1,6 +1,7 @@
  #include "Arm.h"
  #include "RoboPart.h"
  #include "Leg.h"
+ #include "Battery.h"
 
  using namespace std;
 
@@ -30,8 +31,8 @@
     bool laser = true;
     Arm arm(name,SN,weight,cost,description,type,passiveDraw,activeDraw,laser);
     cout << "\nThe type of the part is: " << arm.getType() << "\n";
-    cout << "The passive draw on the arm is " << arm.getpassiveDraw() << "\n";
-    cout << "The passive draw on the arm is " << arm.getactiveDraw() << "\n";
+    cout << "The passive draw on the arm is " << arm.getpassiveDraw() << " units of charge per day.\n";
+    cout << "The passive draw on the arm is " << arm.getactiveDraw() << " units of charge per day.\n";
     cout << "It has a laser on the arm:  " << arm.getLaser() << "\n";
 
     //test leg
@@ -41,10 +42,16 @@
     int speed = 40;
     Leg leg(name,SN,weight,cost,description,type,passiveDraw,activeDraw,speed);
     cout << "\nThe type of the part is: " << leg.getType() << "\n";
-    cout << "The passive draw on the arm is " << leg.getpassiveDraw() << "\n";
-    cout << "The passive draw on the arm is " << leg.getactiveDraw() << "\n";
-    cout << "The speed of the leg is " << leg.getSpeed() << "\n";
+    cout << "The passive draw on the arm is " << leg.getpassiveDraw() << " units of charge per day.\n";
+    cout << "The passive draw on the arm is " << leg.getactiveDraw() << " units of charge per day.\n";
+    cout << "The speed of the leg is " << leg.getSpeed() << ".\n";
 
+    //test battery
+    type = "battery";
+    int charge = 90;
+    Battery battery(name,SN,weight,cost,description,type,charge);
+    cout << "\nThe type of the part is: " << battery.getType() << "\n";
+    cout << "The battery has " << battery.getCharge() << " units of charge.\n";
 
     
  }
