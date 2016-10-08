@@ -3,6 +3,7 @@
  #include "Leg.h"
  #include "Battery.h"
  #include "Head.h"
+ #include "Torso.h"
 
  using namespace std;
 
@@ -54,4 +55,15 @@
     cout << "The draw on the arm is " << head.getDraw() << " units of charge per day.\n";
     cout << "It has a laser on the head:  " << head.getLaser() << "\n";
     
+    //test torso
+    draw = 102;
+    int bSpace = 1;
+    int aSpace = 2;
+    int lSpace = 3;
+    Torso torso(name,SN,weight,cost,description,draw,bSpace,aSpace,lSpace);
+    cout << "\nThe type of the part is: " << torso.getType() << "\n";
+    cout << "The draw on the torso is " << torso.getDraw() << " units of charge per day.\n";
+    cout << "The torso can hold " << torso.getBSpace() << " batteries.\n";
+    cout << "The torso can hold " << torso.getASockets() << " arms.\n";
+    cout << "The torso can hold " << torso.getLSockets() << " legs.\n";
  }
