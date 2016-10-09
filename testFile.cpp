@@ -5,9 +5,9 @@
  #include "Head.h"
  #include "Torso.h"
 
- using namespace std;
-
- int main(void){
+ using namespace std; 
+ 
+ static void test(){
     //variables for the RoboPart
     string name = "super awesome part";
     int SN = 1234;
@@ -21,7 +21,7 @@
     bool laser = true;
     Arm arm(name,SN,weight,cost,description,passiveDraw,activeDraw,laser);
     //test RoboPart getters
-    cout << "The name of the part is: " << arm.getName() << "\n";
+    cout << "\nThe name of the part is: " << arm.getName() << "\n";
     cout << "The SN of the part is: " << arm.getSN() << "\n";
     cout << "The weight of the part is: " << arm.getWeight() << "\n";
     cout << "The cost of the part is: " << arm.getCost() << "\n";
@@ -66,4 +66,4 @@
     cout << "The torso can hold " << torso.getBSpace() << " batteries.\n";
     cout << "The torso can hold " << torso.getASockets() << " arms.\n";
     cout << "The torso can hold " << torso.getLSockets() << " legs.\n";
- }
+ };
