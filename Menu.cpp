@@ -1,11 +1,12 @@
 //maxwell sanders 10010696952
 //this class is in charge of the menu
 #include "Menu.h"
+#include "Workshop.h"
 
 #define INVALID response<0||response>2
 
 using namespace std;
-
+Workshop workshop;
 
 //used to see who the user is
 int Menu::getPerm(){
@@ -31,12 +32,12 @@ bool Menu::mainMenu(int perm){
 	cout << "What would you like to do?\n";
 	cout << "==========================\n";
 	cout << "==========================\n";
-	cout << "0 - exit\n";
+	cout << "0 - exit program\n";
 	cout << "1 - logout\n";
 	cout << "2 - use the workshop\n";
 	cin >> response;
         if(INVALID || cin.fail()){
-	    cout << "That is an invalid task.\n\n";
+	    cout << "\nThat is an invalid task.\n\n";
 	    cin.clear();
 	    cin.ignore();
 	    response = 30;	
@@ -55,11 +56,11 @@ bool Menu::mainMenu(int perm){
 	//use the workshop
 	if(response == 2){
 	    if(getPerm() == 1){
-	    	cout << "Hey you would be using the workshop if it was implemented.\n";
+	    	workshop.useWorkshop();
 	    	response = 1337;
 	    }
 	    else{
-		cout << "You don't have the permissions to do that.\n";
+		cout << "\nYou don't have the permissions to do that.\n";
 	    	response = 1337;
 	    }
 	}
