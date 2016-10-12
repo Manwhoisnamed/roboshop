@@ -16,11 +16,3 @@
 	return Torso::batterySpace;
  }
 
- int Torso::getASockets(){
-	return Torso::armSockets;
- }
-
- int Torso::getLSockets(){
-	return Torso::legSockets;
- }
-

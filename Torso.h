@@ -10,10 +10,8 @@
   private:
     double draw;
     int batterySpace;
-    int armSockets;
-    int legSockets;
   public:
-    Torso(string iname, int iSN, double iweight, double icost, string idescription, double idraw, int bspace, int asockets, int lsockets) : RoboPart(iname, iSN, iweight, icost, idescription) , draw(idraw), batterySpace(bspace), armSockets(asockets), legSockets(lsockets){}
+    Torso(string iname, int iSN, double iweight, double icost, string idescription, double idraw, int bspace) : RoboPart(iname, iSN, iweight, icost, idescription) , draw(idraw), batterySpace(bspace){}
     double getDraw();
     int getBSpace();
     int getASockets();
