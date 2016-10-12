@@ -1,7 +1,11 @@
 //maxwell Sanders 1001069652
 
- #include "maxwellResourcePack.h"
  #include "RoboPart.h"
+ #include "Arm.h"
+ #include "Leg.h"
+ #include "Battery.h"
+ #include "Torso.h"
+ #include "Head.h"
  
  using namespace std;
 
@@ -13,5 +17,10 @@
   public:
     Workshop(){};
     void useWorkshop();    
+    Arm makeArm();
+    Leg makeLeg();
+    Battery makeBattery();
+    Torso makeTorso();
+    Head makeHead();
  };
  #endif

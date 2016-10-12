@@ -14,7 +14,7 @@ int main(void){
     //keep going if somebody logs out but doesn't want to quit
     while(true){
 	    while(VALID){    
-		cout << "Welcome to the Rob Robman's Rockin RoboShop System!\n";
+		cout << "\nWelcome to the Rob Robman's Rockin RoboShop System!\n";
 		cout << "===================================================\n";
 		cout << "===================================================\n";
 		cout << "What level of responsibility do you want to have?\n";
@@ -22,11 +22,13 @@ int main(void){
 		cout << "1 - System Maintenance, some responsibilty, you should probably fix the problems that show up.\n";
 		cout << "2 - Rob Robman, all the responsibility, you run the shop.\n";
 		cout << "3 - Grunt, no responsibility, you do nothing, you serve the purpose to test permissions.\n";
+		cout << "===================================================\n";
+		cout << "Your response: ";
 		cin >> response;
 		if(VALID || cin.fail()){
-		    cout << "That is an invalid level of responsibility. Please try again.\n\n";
+		    cout << "That is an invalid level of responsibility. Please try again.\n";
 		    cin.clear();
-		    cin.ignore();
+		    cin.ignore(300,'\n');
 		    response = 30;
 		}
 	    }

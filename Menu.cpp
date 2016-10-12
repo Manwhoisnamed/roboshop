@@ -35,11 +35,13 @@ bool Menu::mainMenu(int perm){
 	cout << "0 - exit program\n";
 	cout << "1 - logout\n";
 	cout << "2 - use the workshop\n";
+	cout << "==========================\n";
+	cout << "Your response: ";
 	cin >> response;
         if(INVALID || cin.fail()){
 	    cout << "\nThat is an invalid task.\n\n";
 	    cin.clear();
-	    cin.ignore();
+	    cin.ignore(400,'\n');
 	    response = 30;	
         }
 
