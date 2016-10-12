@@ -13,6 +13,5 @@
 	    void setPerm(int perm);
 	    int getPerm();
 	    bool mainMenu(int perm);
-
  };
  #endif

@@ -7,7 +7,7 @@
 using namespace std;
 
 //this is basically the menu for the workshop
-void Workshop::useWorkshop(){
+Storage Workshop::useWorkshop(Storage storage){
     int response = 1337;	
     //stay in the workshop until you don't want to be in the workshop
     while(response !=  0){
@@ -33,32 +33,33 @@ void Workshop::useWorkshop(){
 	}
 	//make torso
 	else if(response == 1){
-	    makeTorso();
+	    storage.addTorso(makeTorso());
 	    response = 1337;
 	}
 	//make arm
 	else if(response == 2){
-	    makeArm();
+	    storage.addArm(makeArm());
 	    response = 1337;
 	}
 	//make leg
 	else if(response == 3){
-	    makeLeg();
+	    storage.addLeg(makeLeg());
 	    response = 1337;
 	}
 	//make head
 	else if(response == 4){
-	    makeHead();
+	    storage.addHead(makeHead());
 	    response = 1337;
 	}
 	//make battery
 	else if(response == 5){
-	    makeBattery();
+	    storage.addBattery(makeBattery());
 	    response = 1337;
 	}
 
     }
     cout << "\n";
+    return storage;
 }
 
 //this makes an arm object and returns it
@@ -112,12 +113,12 @@ Arm Workshop::makeArm(){
 
     //cost
     cout << "What is the cost? ";
-    cin >> SN;
+    cin >> cost;
     while(cin.fail()){
 	cin.clear();
 	cin.ignore(400,'\n');
 	cout << "Bad input. What is cost? ";
-	cin >> SN;
+	cin >> cost;
     }
 
     //passive draw
@@ -211,12 +212,12 @@ Leg Workshop::makeLeg(){
 
     //cost
     cout << "What is the cost? ";
-    cin >> SN;
+    cin >> cost;
     while(cin.fail()){
 	cin.clear();
 	cin.ignore(400,'\n');
 	cout << "Bad input. What is the cost? ";
-	cin >> SN;
+	cin >> cost;
     }
 
     //passive draw
@@ -303,12 +304,12 @@ Head Workshop::makeHead(){
 
     //cost
     cout << "What is the cost? ";
-    cin >> SN;
+    cin >> cost;
     while(cin.fail()){
 	cin.clear();
 	cin.ignore(400,'\n');
 	cout << "Bad input. What is cost? ";
-	cin >> SN;
+	cin >> cost;
     }
 
     //draw
@@ -364,7 +365,7 @@ Torso Workshop::makeTorso(){
     cin.getline(input,100);
     cin.getline(input, 100);
     name = input;
-    cout << "Enter the battery description: ";
+    cout << "Enter the torso description: ";
     cin.getline(input,200);
     description = input;
 
@@ -390,12 +391,12 @@ Torso Workshop::makeTorso(){
 
     //cost
     cout << "What is the cost? ";
-    cin >> SN;
+    cin >> cost;
     while(cin.fail()){
 	cin.clear();
 	cin.ignore(400,'\n');
 	cout << "Bad input. What is the cost? ";
-	cin >> SN;
+	cin >> cost;
     }
 
     //charge
@@ -470,12 +471,12 @@ Battery Workshop::makeBattery(){
 
     //cost
     cout << "What is the cost? ";
-    cin >> SN;
+    cin >> cost;
     while(cin.fail()){
 	cin.clear();
 	cin.ignore(400,'\n');
 	cout << "Bad input. What is the cost? ";
-	cin >> SN;
+	cin >> cost;
     }
 
     //charge

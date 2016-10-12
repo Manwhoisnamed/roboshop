@@ -6,6 +6,7 @@
  #include "Battery.h"
  #include "Torso.h"
  #include "Head.h"
+ #include "Storage.h"
  
  using namespace std;
 
@@ -16,7 +17,7 @@
     
   public:
     Workshop(){};
-    void useWorkshop();    
+    Storage useWorkshop(Storage storage);    
     Arm makeArm();
     Leg makeLeg();
     Battery makeBattery();

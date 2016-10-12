@@ -4,6 +4,62 @@
 #include "Storage.h"
 #include <iostream>
 
+//this is the main ui for storage
+void Storage::useStorage(){
+    int response = 1337;	
+    //stay in the storage shed until you don't want to be in the storage shed
+    while(response !=  0){
+	cout << "\nYou are now using the Storage Shed\n";
+    	cout << "What would you like to do?\n";
+	cout << "==============================\n";
+	cout << "==============================\n";
+	cout << "0 - Leave the Storage Shed\n";
+	cout << "1 - Look at the arms\n";
+	cout << "2 - Look at the legs\n";
+	cout << "3 - Look at the heads\n";
+	cout << "4 - Look at the batteries\n";
+	cout << "5 - Look at the torsos\n";
+	cout << "==============================\n";
+	cout << "Your response: ";
+	cin >> response;
+	//if the response isn't in the list or not an int, try again
+	if(response<0||response>5||cin.fail()){
+	    cout << "That is an invalid response! Please try again.\n";
+	    cin.clear();
+	    cin.ignore(400,'\n');
+	    response = 1337;
+	}
+	//print arms
+	else if(response == 1){
+	    printArms();
+	    response = 1337;
+	}
+	//print legs
+	else if(response == 2){
+	    printLegs();
+	    response = 1337;
+	}
+	//print heads
+	else if(response == 3){
+	    printHeads();
+	    response = 1337;
+	}
+	//print batteries
+	else if(response == 4){
+	    printBatteries();
+	    response = 1337;
+	}
+	//print torsos
+	else if(response == 5){
+	    printTorsos();
+	    response = 1337;
+	}
+
+    }
+    cout << "\n";
+
+}
+
 void Storage::addArm(Arm arm){
     Storage::arms.push_back(arm);
 }

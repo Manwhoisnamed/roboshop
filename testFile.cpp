@@ -9,7 +9,7 @@
  using namespace std; 
 
  static void test(){
-    Storage storage;
+    Storage testStore;
     //variables for the RoboPart
     string name = "super awesome part";
     int SN = 1234;
@@ -17,12 +17,12 @@
     double cost = 1234.12;
     string description = "This is a great description";
     
-    //test arm
+    //testStore arm
     double passiveDraw = 27;
     double activeDraw = 34;
     bool laser = true;
     Arm arm(name,SN,weight,cost,description,passiveDraw,activeDraw,laser);
-    //test RoboPart getters
+    //testStore RoboPart getters
     cout << "\nThe name of the part is: " << arm.getName() << "\n";
     cout << "The SN of the part is: " << arm.getSN() << "\n";
     cout << "The weight of the part is: " << arm.getWeight() << "\n";
@@ -33,7 +33,7 @@
     cout << "The passive draw on the arm is " << arm.getactiveDraw() << " Kilowatts.\n";
     cout << "It has a laser on the arm:  " << arm.getLaser() << "\n";
 
-    //test leg
+    //testStore leg
     passiveDraw = 32;
     activeDraw = 97;
     int speed = 40;
@@ -43,13 +43,13 @@
     cout << "The passive draw on the arm is " << leg.getactiveDraw() << " Kilowatts.\n";
     cout << "The speed of the leg is " << leg.getSpeed() << ".\n";
 
-    //test battery
+    //testStore battery
     int charge = 90;
     Battery battery(name,SN,weight,cost,description,charge);
     cout << "\nThe type of the part is: " << battery.getType() << "\n";
     cout << "The battery has " << battery.getCharge() << " Kilowatt hours of charge.\n";
 
-    //test arm
+    //testStore arm
     double draw = 12;
     laser = true;
     Head head(name,SN,weight,cost,description,draw,laser);
@@ -57,7 +57,7 @@
     cout << "The draw on the arm is " << head.getDraw() << " Kilowatts.\n";
     cout << "It has a laser on the head:  " << head.getLaser() << "\n";
     
-    //test torso
+    //testStore torso
     draw = 102;
     int bSpace = 1;
     int aSpace = 2;
@@ -67,18 +67,18 @@
     cout << "The draw on the torso is " << torso.getDraw() << " Kilowatts.\n";
     cout << "The torso can hold " << torso.getBSpace() << " batteries.\n";
   
-    storage.addArm(arm);
-    storage.printArms();   
+    testStore.addArm(arm);
+    testStore.printArms();   
 
-    storage.addLeg(leg);
-    storage.printLegs();   
+    testStore.addLeg(leg);
+    testStore.printLegs();   
 
-    storage.addHead(head);
-    storage.printHeads();   
+    testStore.addHead(head);
+    testStore.printHeads();   
 
-    storage.addBattery(battery);
-    storage.printBatteries();   
+    testStore.addBattery(battery);
+    testStore.printBatteries();   
 
-    storage.addTorso(torso);
-    storage.printTorsos();   
+    testStore.addTorso(torso);
+    testStore.printTorsos();   
  };

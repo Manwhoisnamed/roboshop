@@ -21,6 +21,7 @@
     vector<Head> heads;    
   public:
     Storage(){};
+    void useStorage();
     void printArms();
     void printLegs();
     void printTorsos();

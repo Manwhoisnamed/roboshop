@@ -2,11 +2,13 @@
 //this class is in charge of the menu
 #include "Menu.h"
 #include "Workshop.h"
+#include "Storage.h"
 
-#define INVALID response<0||response>2
+#define INVALID response<0||response>3
 
 using namespace std;
 Workshop workshop;
+Storage storage;
 
 //used to see who the user is
 int Menu::getPerm(){
@@ -35,6 +37,7 @@ bool Menu::mainMenu(int perm){
 	cout << "0 - exit program\n";
 	cout << "1 - logout\n";
 	cout << "2 - use the workshop\n";
+	cout << "3 - look at storage\n";
 	cout << "==========================\n";
 	cout << "Your response: ";
 	cin >> response;
@@ -51,14 +54,14 @@ bool Menu::mainMenu(int perm){
 	}
 
 	//logout
-	if(response == 1){
+	else if(response == 1){
 	    return false;
 	}
 
 	//use the workshop
-	if(response == 2){
+	else if(response == 2){
 	    if(getPerm() == 1){
-	    	workshop.useWorkshop();
+	    	storage = workshop.useWorkshop(storage);
 	    	response = 1337;
 	    }
 	    else{
@@ -67,6 +70,18 @@ bool Menu::mainMenu(int perm){
 	    }
 	}
 	
+	//use the storage shed
+        else if(response == 3){
+	    if(getPerm() == 1){
+		storage.useStorage();
+		response = 1337;
+	    }
+	    else{
+		cout <<"\nYou don't have the permissions to do that.\n";
+		response = 1337;
+	    }
+	}
+
 	//thats not a task
 	else{
 	    cout << "That's not a task!!! Please try again.\n";
