@@ -8,8 +8,10 @@ debug: CXXFLAGS += -g
 debug: executable
 
 rebuild: clean executable
-executable: login.o Menu.o testFile.o Arm.o Leg.o Battery.o RoboPart.o Head.o Torso.o Workshop.o
-	$(CXX) $(CXXFLAGS) login.o Menu.o testFile.o Arm.o Leg.o Battery.o RoboPart.o Head.o Torso.o Workshop.o
+executable: Storage.o login.o Menu.o testFile.o Arm.o Leg.o Battery.o RoboPart.o Head.o Torso.o Workshop.o
+	$(CXX) $(CXXFLAGS) Storage.o login.o Menu.o testFile.o Arm.o Leg.o Battery.o RoboPart.o Head.o Torso.o Workshop.o
+Storage.o: Storage.cpp 
+	$(CXX) $(CXXFLAGS) -w -c Storage.cpp
 Workshop.o: Workshop.cpp 
 	$(CXX) $(CXXFLAGS) -w -c Workshop.cpp
 Menu.o: Menu.cpp 

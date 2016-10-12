@@ -38,8 +38,8 @@ int main(void){
 	    }
 	    //run the test code
 	    else if(response == 1){
-		response = test();
-		
+		test();
+		return 0;
 	    }
 	    //run the menu, with permissions 1	
 	    else if(response == 2){
