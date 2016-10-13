@@ -60,6 +60,31 @@ void Storage::useStorage(){
 
 }
 
+
+//the sizing suite
+int Storage::armSize(){
+    return Storage::arms.size();
+}
+
+int Storage::legSize(){
+    return Storage::legs.size();
+}
+
+int Storage::headSize(){
+    return Storage::heads.size();
+}
+
+int Storage::torsoSize(){
+    return Storage::torsos.size();
+}
+
+int Storage::batterySize(){
+    return Storage::batteries.size();
+}
+
+
+
+//the add suite
 void Storage::addArm(Arm arm){
     Storage::arms.push_back(arm);
 }
@@ -80,12 +105,17 @@ void Storage::addBattery(Battery battery){
     Storage::batteries.push_back(battery);
 }
 
+void Storage::addRoboModel(RoboModel robomodel){
+    Storage::robomodels.push_back(robomodel);	
+}
+
+//the print suite
 void Storage::printArms(){
     int i = 0, size = Storage::arms.size();
     cout << "\nViewing the arms\n";
     cout << "================\n";
     for(i = 0; i < size; i ++){
-	cout << i+1 << " - " << Storage::arms.at(i).getName() << "\n";
+	cout << i+1 << " - Name: " << Storage::arms.at(i).getName() << "\n";
 	cout << "    Description: " << Storage::arms.at(i).getDescription() << "\n";
 	cout << "    SN: " << Storage::arms.at(i).getSN() << "\n";
 	cout << "    Weight: " << Storage::arms.at(i).getWeight() << "\n";
@@ -101,7 +131,7 @@ void Storage::printLegs(){
     cout << "\nViewing the legs\n";
     cout << "================\n";
     for(i = 0; i < size; i ++){
-	cout << i+1 << " - " << Storage::legs.at(i).getName() << "\n";
+	cout << i+1 << " - Name: " << Storage::legs.at(i).getName() << "\n";
 	cout << "    Description: " << Storage::legs.at(i).getDescription() << "\n";
 	cout << "    SN: " << Storage::legs.at(i).getSN() << "\n";
 	cout << "    Weight: " << Storage::legs.at(i).getWeight() << "\n";
@@ -118,7 +148,7 @@ void Storage::printHeads(){
     cout << "\nViewing the heads\n";
     cout << "=================\n";
     for(i = 0; i < size; i ++){
-	cout << i+1 << " - " << Storage::heads.at(i).getName() << "\n";
+	cout << i+1 << " - Name: " << Storage::heads.at(i).getName() << "\n";
 	cout << "    Description: " << Storage::heads.at(i).getDescription() << "\n";
 	cout << "    SN: " << Storage::heads.at(i).getSN() << "\n";
 	cout << "    Weight: " << Storage::heads.at(i).getWeight() << "\n";
@@ -134,7 +164,7 @@ void Storage::printBatteries(){
     cout << "\nViewing the batteries\n";
     cout << "=====================\n";
     for(i = 0; i < size; i ++){
-	cout << i+1 << " - " << Storage::batteries.at(i).getName() << "\n";
+	cout << i+1 << " - Name: " << Storage::batteries.at(i).getName() << "\n";
 	cout << "    Description: " << Storage::batteries.at(i).getDescription() << "\n";
 	cout << "    SN: " << Storage::batteries.at(i).getSN() << "\n";
 	cout << "    Weight: " << Storage::batteries.at(i).getWeight() << "\n";
@@ -149,7 +179,7 @@ void Storage::printTorsos(){
     cout << "\nViewing the torsos\n";
     cout << "==================\n";
     for(i = 0; i < size; i ++){
-	cout << i+1 <<" - " << Storage::torsos.at(i).getName() << "\n";
+	cout << i+1 <<" - Name: " << Storage::torsos.at(i).getName() << "\n";
 	cout << "    Description: " << Storage::torsos.at(i).getDescription() << "\n";
 	cout << "    SN: " << Storage::torsos.at(i).getSN() << "\n";
 	cout << "    Weight: " << Storage::torsos.at(i).getWeight() << "\n";
@@ -159,3 +189,27 @@ void Storage::printTorsos(){
     }
 
 }
+
+
+//the getter suite, used i
+Arm Storage::getArm(int i){
+    return Storage::arms.at(i);
+}
+
+Leg Storage::getLeg(int i){
+    return Storage::legs.at(i);
+}
+
+Battery Storage::getBattery(int i){
+    return Storage::batteries.at(i);
+}
+
+Torso Storage::getTorso(int i){
+    return Storage::torsos.at(i);
+}
+
+Head Storage::getHead(int i){
+    return Storage::heads.at(i);
+}
+
+

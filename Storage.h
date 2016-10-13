@@ -7,6 +7,7 @@
  #include "Battery.h"
  #include "Torso.h"
  #include "Head.h"
+ #include "RoboModel.h"
  
  using namespace std;
 
@@ -18,19 +19,47 @@
     vector<Leg> legs;
     vector<Torso> torsos;
     vector<Battery> batteries;
-    vector<Head> heads;    
+    vector<Head> heads;
+    vector<RoboModel> robomodels;    
   public:
+    //the usage suite
     Storage(){};
     void useStorage();
+
+    //the sizing suite
+    int armSize();
+    int legSize();
+    int torsoSize();
+    int batterySize();
+    int headSize();
+
+    //the printing suite
     void printArms();
     void printLegs();
     void printTorsos();
     void printBatteries();
     void printHeads();
+
+    //the addition suite
     void addArm(Arm arm);
     void addLeg(Leg leg);
     void addBattery(Battery battery);
     void addTorso(Torso torso);
     void addHead(Head head);
+    void addRoboModel(RoboModel robomodel);
+
+    //the getter suite
+    Arm getArm(int i);
+    Leg getLeg(int i);
+    Battery getBattery(int i);
+    Torso getTorso(int i);
+    Head getHead(int i);
+
+    //data validation suite
+    void checkArms(Arm arm);
+    void checkLegs(Leg leg);
+    void checkBatteries(Battery battery);
+    void checkTorsos(Torso torso);
+    void checkHeads(Head head); 
  };
  #endif
