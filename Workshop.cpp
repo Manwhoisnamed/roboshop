@@ -7,6 +7,13 @@
 
 using namespace std;
 
+//have functions that will return the data validated input and prompts the user what it is for
+int inputInt(string prompt);
+double inputDouble(string prompt);
+
+//populates robo variables
+void PRV(string &name, string &description,double &weight, double &cost, int &SN);
+
 //this is basically the menu for the workshop
 Storage Workshop::useWorkshop(Storage storage){
     int response = 1337;	
@@ -73,7 +80,6 @@ Storage Workshop::useWorkshop(Storage storage){
 //this makes an arm object and returns it
 Arm Workshop::makeArm(){
     //input variables
-    char input[200];
     int response;    
 
     //variables necessary for RoboPart
@@ -87,67 +93,15 @@ Arm Workshop::makeArm(){
     double passiveDraw;
     double activeDraw;
     bool laser;
-    
-    //the part of the code that gets all of the user input
-    //the first part gets the strings so I can blast through get line
-    cout << "What do you want to name the part? ";
-    //have to do one to clear the channel
-    cin.getline(input,100);
-    cin.getline(input, 100);
-    name = input;
-    cout << "Enter the arm description: ";
-    cin.getline(input,200);
-    description = input;
 
-    //serial number
-    cout << "What is the Serial Number? ";
-    cin >> SN;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the Serial Number? ";
-	cin >> SN;
-    }
-
-    //weight
-    cout << "What is the weight? ";
-    cin >> weight;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the weight? ";
-	cin >> weight;
-    }
-
-    //cost
-    cout << "What is the cost? ";
-    cin >> cost;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is cost? ";
-	cin >> cost;
-    }
+    //populates robopart variables
+    PRV(name, description, weight, cost, SN);    
 
     //passive draw
-    cout << "What is the passive draw? ";
-    cin >> passiveDraw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the passive draw? ";
-	cin >> passiveDraw;
-    }
+    passiveDraw = inputDouble("What is the passive draw? ");
 
     //active draw
-    cout << "What is the active draw? ";
-    cin >> activeDraw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the active draw? ";
-	cin >> activeDraw;
-    }
+    activeDraw = inputDouble("What is the active draw? ");
 
     //laser
     cout << "Does it have a laser (1/0)? ";
@@ -172,7 +126,6 @@ Arm Workshop::makeArm(){
 //this makes a leg object and returns it
 Leg Workshop::makeLeg(){
     //input variables
-    char input[200];
     int response;    
 
     //variables necessary for RoboPart
@@ -187,76 +140,17 @@ Leg Workshop::makeLeg(){
     double activeDraw;
     int speed;   
  
-    //the part of the code that gets all of the user input
-    //the first part gets the strings so I can blast through get line
-    cout << "What do you want to name the part? ";
-    //have to do one to clear the channel
-    cin.getline(input,100);
-    cin.getline(input, 100);
-    name = input;
-    cout << "Enter the leg description: ";
-    cin.getline(input,200);
-    description = input;
-
-    //serial number
-    cout << "What is the Serial Number? ";
-    cin >> SN;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the Serial Number? ";
-	cin >> SN;
-    }
-
-    //weight
-    cout << "What is the weight? ";
-    cin >> weight;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the weight? ";
-	cin >> weight;
-    }
-
-    //cost
-    cout << "What is the cost? ";
-    cin >> cost;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the cost? ";
-	cin >> cost;
-    }
+    //populates robopart variables
+    PRV(name, description, weight, cost, SN);    
 
     //passive draw
-    cout << "What is the passive draw? ";
-    cin >> passiveDraw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the passive draw? ";
-	cin >> passiveDraw;
-    }
+    passiveDraw = inputDouble("What is the passive draw? ");
 
     //active draw
-    cout << "What is the active draw? ";
-    cin >> activeDraw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the active draw? ";
-	cin >> activeDraw;
-    }
+    activeDraw = inputDouble("What is the active draw? ");
 
     //speed
-    cout << "What is the speed? ";
-    cin >> speed;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the speed of the leg? ";
-	cin >> speed;
-    }
+    speed = inputInt("What is the speed? ");
 
     Leg leg(name,SN,weight,cost,description,passiveDraw,activeDraw,speed); 
     return leg;
@@ -279,56 +173,11 @@ Head Workshop::makeHead(){
     double draw;
     bool laser;
     
-    //the part of the code that gets all of the user input
-    //the first part gets the strings so I can blast through get line
-    cout << "What do you want to name the part? ";
-    //have to do one to clear the channel
-    cin.getline(input,100);
-    cin.getline(input, 100);
-    name = input;
-    cout << "Enter the head description: ";
-    cin.getline(input,200);
-    description = input;
-
-    //serial number
-    cout << "What is the Serial Number? ";
-    cin >> SN;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the Serial Number? ";
-	cin >> SN;
-    }
-
-    //weight
-    cout << "What is the weight? ";
-    cin >> weight;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the weight? ";
-	cin >> weight;
-    }
-
-    //cost
-    cout << "What is the cost? ";
-    cin >> cost;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is cost? ";
-	cin >> cost;
-    }
+    //populates robopart variables
+    PRV(name, description, weight, cost, SN);    
 
     //draw
-    cout << "What is the draw? ";
-    cin >> draw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the draw? ";
-	cin >> draw;
-    }
+    draw = inputDouble("What is the draw? ");
 
     //laser
     cout << "Does it have a laser (1/0)? ";
@@ -366,56 +215,11 @@ Torso Workshop::makeTorso(){
     double draw;
     int bSpace; 
 
-    //the part of the code that gets all of the user input
-    //the first part gets the strings so I can blast through get line
-    cout << "What do you want to name the part? ";
-    //have to do one to clear the channel
-    cin.getline(input,100);
-    cin.getline(input, 100);
-    name = input;
-    cout << "Enter the torso description: ";
-    cin.getline(input,200);
-    description = input;
+    //populates robopart variables
+    PRV(name, description, weight, cost, SN);    
 
-    //serial number
-    cout << "What is the Serial Number? ";
-    cin >> SN;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the Serial Number? ";
-	cin >> SN;
-    }
-
-    //weight
-    cout << "What is the weight? ";
-    cin >> weight;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the weight? ";
-	cin >> weight;
-    }
-
-    //cost
-    cout << "What is the cost? ";
-    cin >> cost;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the cost? ";
-	cin >> cost;
-    }
-
-    //charge
-    cout << "What is the draw? ";
-    cin >> draw;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the draw? ";
-	cin >> draw;
-    }
+    //draw
+    draw = inputDouble("What is the draw? ");
 
     //battery Space
     cout << "How much battery space does the torso have (1/2/3)? ";
@@ -433,8 +237,6 @@ Torso Workshop::makeTorso(){
 
 //this makes a battery object
 Battery Workshop::makeBattery(){
-    //input variables
-    char input[200]; 
 
     //variables necessary for RoboPart
     string name;
@@ -445,57 +247,11 @@ Battery Workshop::makeBattery(){
     
     //variables used to make the specific part
     double charge;
- 
-    //the part of the code that gets all of the user input
-    //the first part gets the strings so I can blast through get line
-    cout << "What do you want to name the part? ";
-    //have to do one to clear the channel
-    cin.getline(input,100);
-    cin.getline(input, 100);
-    name = input;
-    cout << "Enter the battery description: ";
-    cin.getline(input,200);
-    description = input;
 
-    //serial number
-    cout << "What is the Serial Number? ";
-    cin >> SN;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the Serial Number? ";
-	cin >> SN;
-    }
-
-    //weight
-    cout << "What is the weight? ";
-    cin >> weight;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the weight? ";
-	cin >> weight;
-    }
-
-    //cost
-    cout << "What is the cost? ";
-    cin >> cost;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the cost? ";
-	cin >> cost;
-    }
+    PRV(name,description, weight, cost, SN);
 
     //charge
-    cout << "What is the charge? ";
-    cin >> charge;
-    while(cin.fail()){
-	cin.clear();
-	cin.ignore(400,'\n');
-	cout << "Bad input. What is the charge? ";
-	cin >> charge;
-    }
+    charge = inputDouble("What is the charge? ");
 
     Battery battery(name,SN,weight,cost,description,charge); 
     return battery;
@@ -805,3 +561,53 @@ RoboModel Workshop::makeRoboModel(Storage storage){
     }
     return robomodel;
 }
+
+//input methods used to reduce lines of code
+int inputInt(string prompt){
+    int input;
+    cout << prompt;
+    cin >> input;
+    while(cin.fail()){
+	cin.clear();
+	cin.ignore(1000,'\n');
+	cout << "Bad input. " << prompt;
+	cin >> input;
+    }
+    return input;
+}
+
+double inputDouble(string prompt){
+    double input;
+    cout << prompt;
+    cin >> input;
+    while(cin.fail()){
+	cin.clear();
+	cin.ignore(1000,'\n');
+	cout << "Bad input. " << prompt;
+	cin >> input;
+    }
+    return input;
+}
+
+//populates robo variables
+void PRV(string &name, string &description,double &weight, double &cost, int &SN){
+    char input[300];
+    cout << "What do you want to name the part? ";
+    //clear the channel
+    cin.ignore(1000,'\n');
+    cin.getline(input, 100);
+    name = input;
+    cout << "Enter the head description: ";
+    cin.getline(input,300);
+    description = input;
+
+    //serial number
+    SN = inputInt("What is the Serial Number? ");
+
+    //weight
+    weight = inputDouble("What is the weight? ");
+
+    //cost
+    cost = inputDouble("What is the cost? "); 
+}
+
