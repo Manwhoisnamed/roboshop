@@ -7,6 +7,7 @@
  #define __ROBOPART_H 2016
  class RoboPart {
   public:
+    RoboPart(){};
     RoboPart(string iname, int iSN, double iweight, double icost, string idescription): name(iname), SN(iSN), weight(iweight), cost(icost), description(idescription){} 
     string getName();
     int getSN();

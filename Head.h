@@ -13,6 +13,7 @@
     double draw;
     bool laser;    
   public:
+    Head(){};
     Head(string iname, int iSN, double iweight, double icost, string idescription, double idraw, bool ilaser) : RoboPart(iname, iSN, iweight, icost, idescription) , draw(idraw), laser(ilaser){}
     double getDraw();
     bool getLaser();

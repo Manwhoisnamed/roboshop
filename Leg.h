@@ -13,6 +13,7 @@
     double activeDraw;
     int speed;    
   public:
+    Leg(){};
     Leg(string iname, int iSN, double iweight, double icost, string idescription, double ipassiveDraw, double iactiveDraw, int ispeed) : RoboPart(iname, iSN, iweight, icost, idescription) , passiveDraw(ipassiveDraw), activeDraw(iactiveDraw), speed(ispeed){}
     double getpassiveDraw();
     double getactiveDraw();

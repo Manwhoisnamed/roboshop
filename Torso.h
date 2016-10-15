@@ -11,6 +11,7 @@
     double draw;
     int batterySpace;
   public:
+    Torso(){};
     Torso(string iname, int iSN, double iweight, double icost, string idescription, double idraw, int bspace) : RoboPart(iname, iSN, iweight, icost, idescription) , draw(idraw), batterySpace(bspace){}
     double getDraw();
     int getBSpace();
