@@ -1,6 +1,7 @@
 //maxwell Sanders 1001069652
 //this class is used to store parts and models
 
+ #include <string.h>
  #include <vector>
  #include "Arm.h"
  #include "Leg.h"
@@ -32,6 +33,7 @@
     int torsoSize();
     int batterySize();
     int headSize();
+    int robomodelSize();
 
     //the printing suite
     void printArms();
@@ -39,6 +41,8 @@
     void printTorsos();
     void printBatteries();
     void printHeads();
+    void printRoboModel(RoboModel robomodel);
+    void printCatalogue();
 
     //the addition suite
     void addArm(Arm arm);
@@ -54,6 +58,7 @@
     Battery getBattery(int i);
     Torso getTorso(int i);
     Head getHead(int i);
+    RoboModel getRoboModel(int i);
 
     //data validation suite
     void checkArms(Arm arm);

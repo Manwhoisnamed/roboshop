@@ -18,9 +18,9 @@ int main(void){
 		cout << "===================================================\n";
 		cout << "===================================================\n";
 		cout << "What level of responsibility do you want to have?\n";
-		cout << "0 - Shut down the program, truy no responsibility, you didn't even mean to be here.\n";
+		cout << "0 - Shut down the program, truly no responsibility, you didn't even mean to be here.\n";
 		cout << "1 - System Maintenance, some responsibilty, you should probably fix the problems that show up.\n";
-		cout << "2 - Rob Robman, all the responsibility, you run the shop.\n";
+		cout << "2 - Rob Robman, project manager.\n";
 		cout << "3 - Grunt, no responsibility, you do nothing, you serve the purpose to test permissions.\n";
 		cout << "===================================================\n";
 		cout << "Your response: ";

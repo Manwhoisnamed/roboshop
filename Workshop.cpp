@@ -81,27 +81,28 @@ Storage Workshop::useWorkshop(Storage storage){
 Arm Workshop::makeArm(){
     //input variables
     int response;    
-
+    
     //variables necessary for RoboPart
     string name;
     int SN;
     double weight;
     double cost;
     string description;
-    
+
     //variables used to make the specific part
-    double passiveDraw;
-    double activeDraw;
     bool laser;
 
+    cout << "\nYou are making a leg\n";
+    cout << "======================\n";
+ 
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
 
     //passive draw
-    passiveDraw = inputDouble("What is the passive draw? ");
+    double passiveDraw = inputDouble("What is the passive draw? ");
 
     //active draw
-    activeDraw = inputDouble("What is the active draw? ");
+    double activeDraw = inputDouble("What is the active draw? ");
 
     //laser
     cout << "Does it have a laser (1/0)? ";
@@ -128,29 +129,27 @@ Leg Workshop::makeLeg(){
     //input variables
     int response;    
 
+    cout << "\nYou are making a leg\n";
+    cout << "======================\n";
+ 
     //variables necessary for RoboPart
     string name;
     int SN;
     double weight;
     double cost;
     string description;
-    
-    //variables used to make the specific part
-    double passiveDraw;
-    double activeDraw;
-    int speed;   
- 
+
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
 
     //passive draw
-    passiveDraw = inputDouble("What is the passive draw? ");
+    double passiveDraw = inputDouble("What is the passive draw? ");
 
     //active draw
-    activeDraw = inputDouble("What is the active draw? ");
+    double activeDraw = inputDouble("What is the active draw? ");
 
     //speed
-    speed = inputInt("What is the speed? ");
+    double speed = inputInt("What is the speed? ");
 
     Leg leg(name,SN,weight,cost,description,passiveDraw,activeDraw,speed); 
     return leg;
@@ -170,14 +169,16 @@ Head Workshop::makeHead(){
     string description;
     
     //variables used to make the specific part
-    double draw;
     bool laser;
+
+    cout << "\nYou are making a head\n";
+    cout << "======================\n";
     
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
 
     //draw
-    draw = inputDouble("What is the draw? ");
+    double draw = inputDouble("What is the draw? ");
 
     //laser
     cout << "Does it have a laser (1/0)? ";
@@ -212,14 +213,16 @@ Torso Workshop::makeTorso(){
     string description;
     
     //variables used to make the specific part
-    double draw;
     int bSpace; 
+
+    cout << "\nYou are making a torso\n";
+    cout << "======================\n";
 
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
 
     //draw
-    draw = inputDouble("What is the draw? ");
+    double draw = inputDouble("What is the draw? ");
 
     //battery Space
     cout << "How much battery space does the torso have (1/2/3)? ";
@@ -245,13 +248,13 @@ Battery Workshop::makeBattery(){
     double cost;
     string description;
     
-    //variables used to make the specific part
-    double charge;
+    cout << "\nYou are making a battery\n";
+    cout << "========================\n";
 
     PRV(name,description, weight, cost, SN);
 
     //charge
-    charge = inputDouble("What is the charge? ");
+    double charge = inputDouble("What is the charge? ");
 
     Battery battery(name,SN,weight,cost,description,charge); 
     return battery;
@@ -260,8 +263,9 @@ Battery Workshop::makeBattery(){
 RoboModel Workshop::makeRoboModel(Storage storage){
     int response = 1337;    
     string name;
+    string description;
     int MN;
-    int price;
+    double price;
     RoboModel robomodel;
 
     cout << "You are making a RoboModel\n";
@@ -559,6 +563,36 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 	    cout << "Bad input. Please try again.\n";
 	}
     }
+    while(true){
+        cout << "The cost of this model is " << robomodel.getCost() << ".\nWhat do you want the price to be? ";
+        cin >> price;
+        while(cin.fail()){
+	    cin.clear();
+	    cin.ignore(1000,'\n');
+            cout << "Bad input.\nThe cost of this model is " << robomodel.getCost() << ".\nWhat do you want the price to be? ";
+	    cin >> price;
+	    continue;
+        }
+        break;
+    }
+    robomodel.setPrice(price);
+    
+    char input[300];
+    cout << "What do you want to name the RoboModel? ";
+    //clear the channel
+    cin.ignore(1000,'\n');
+    cin.getline(input, 100);
+    name = input;
+    cout << "Enter the RoboModel description: ";
+    cin.getline(input,300);
+    description = input;
+
+    MN = inputInt("Enter a model number: ");
+
+    robomodel.setName(name);
+    robomodel.setDescription(description);
+    robomodel.setMN(MN); 
+
     return robomodel;
 }
 
@@ -597,7 +631,7 @@ void PRV(string &name, string &description,double &weight, double &cost, int &SN
     cin.ignore(1000,'\n');
     cin.getline(input, 100);
     name = input;
-    cout << "Enter the head description: ";
+    cout << "Enter the part description: ";
     cin.getline(input,300);
     description = input;
 

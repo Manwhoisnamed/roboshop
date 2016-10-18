@@ -19,11 +19,12 @@ void Storage::useStorage(){
 	cout << "3 - Look at the heads\n";
 	cout << "4 - Look at the batteries\n";
 	cout << "5 - Look at the torsos\n";
+	cout << "6 - Look at RoboModels\n";
 	cout << "==============================\n";
 	cout << "Your response: ";
 	cin >> response;
 	//if the response isn't in the list or not an int, try again
-	if(response<0||response>5||cin.fail()){
+	if(cin.fail()){
 	    cout << "That is an invalid response! Please try again.\n";
 	    cin.clear();
 	    cin.ignore(400,'\n');
@@ -55,10 +56,21 @@ void Storage::useStorage(){
 	    response = 1337;
 	}
 
+        //print RoboModels
+	else if(response == 6){
+	    printCatalogue();
+	    response = 1337;
+	}
+	
+	//invalid response
+	else if(response > 6){
+	    cout << "That is an invalid response! Please try again.\n";
+	}
     }
     cout << "\n";
 
 }
+
 
 
 //the sizing suite
@@ -82,7 +94,9 @@ int Storage::batterySize(){
     return Storage::batteries.size();
 }
 
-
+int Storage::robomodelSize(){
+    return Storage::robomodels.size();
+}
 
 //the add suite
 void Storage::addArm(Arm arm){
@@ -190,6 +204,24 @@ void Storage::printTorsos(){
 
 }
 
+//prints a single very detailed RoboModel
+void Storage::printRoboModel(RoboModel robomodel){
+    
+}
+
+//prints a list of RoboModels with only the key facts
+void Storage::printCatalogue(){
+    int i = 0, size = Storage::robomodels.size();
+    cout << "\nAll available RoboModels\n";
+    cout << "========================\n";
+    for(i = 0; i < size; i ++){
+	cout << i+1 <<" - Name: " << Storage::robomodels.at(i).getName() << "\n";
+	cout << "    Description: " << Storage::robomodels.at(i).getDescription() << "\n";
+	cout << "    Battery Life (active): " << Storage::robomodels.at(i).getActiveLife() << " hours\n";
+	cout << "    Battery Life (passive): " << Storage::robomodels.at(i).getPassiveLife() << " hours\n";	
+	cout << "    Price: " << Storage::robomodels.at(i).getPrice() << " USD\n";
+    }
+}
 
 //the getter suite, used i
 Arm Storage::getArm(int i){
@@ -212,4 +244,6 @@ Head Storage::getHead(int i){
     return Storage::heads.at(i);
 }
 
-
+RoboModel Storage::getRoboModel(int i){
+    return Storage::robomodels.at(i);
+}

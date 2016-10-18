@@ -21,12 +21,24 @@
     void setTorso(Torso torso);
     void addBattery(Battery battery);
     void addArm(Arm arm);
+    void setName(string iname);
+    void setDescription(string idescription);
+    void setPrice(double iprice);
+    void setMN(int iMN);
 
     Arm getArm(int i);
     Leg getLeg();
     Torso getTorso();
     Battery getBattery(int i);
     Head getHead();
+    string getName();
+    int getMN();
+    double getCost();
+    double getActiveLife();
+    double getPassiveLife();
+    double getPrice();
+    string getDescription();
+
   private:
     int batterySpace;
     Head head;
@@ -34,6 +46,9 @@
     Torso torso;
     vector<Arm> arms;
     vector<Battery> batteries;
-    
+    string description = "";
+    string name = "";
+    double price;
+    int MN;
  };
  #endif
