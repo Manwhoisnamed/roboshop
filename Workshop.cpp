@@ -564,12 +564,12 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 	}
     }
     while(true){
-        cout << "The cost of this model is " << robomodel.getCost() << ".\nWhat do you want the price to be? ";
+        cout << "The cost of this model is " << robomodel.getCost() << " USD.\nWhat do you want the price to be? ";
         cin >> price;
         while(cin.fail()){
 	    cin.clear();
 	    cin.ignore(1000,'\n');
-            cout << "Bad input.\nThe cost of this model is " << robomodel.getCost() << ".\nWhat do you want the price to be? ";
+            cout << "Bad input.\nThe cost of this model is " << robomodel.getCost() << " USD.\nWhat do you want the price to be? ";
 	    cin >> price;
 	    continue;
         }

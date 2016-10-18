@@ -6,7 +6,7 @@
 using namespace std;
 
 //use this to define all of the valid startup menu options
-#define VALID (response<0||response>3)
+#define VALID (response<0||response>4)
 
 int main(void){
     int response = 1337;
@@ -21,7 +21,8 @@ int main(void){
 		cout << "0 - Shut down the program, truly no responsibility, you didn't even mean to be here.\n";
 		cout << "1 - System Maintenance, some responsibilty, you should probably fix the problems that show up.\n";
 		cout << "2 - Rob Robman, project manager.\n";
-		cout << "3 - Grunt, no responsibility, you do nothing, you serve the purpose to test permissions.\n";
+		cout << "3 - Customer login, your responsibility as a consumer is to look at our catalogue.\n";
+		cout << "4 - Sales Associate login, your responsibility as a salesman is to create orders.\n";
 		cout << "===================================================\n";
 		cout << "Your response: ";
 		cin >> response;
@@ -53,15 +54,15 @@ int main(void){
 		    continue;
 		}
 	    }
-	    //grunto test case
+	    //customer login
 	    else if(response == 3){
+		cout << "if we had a customer login you would be using it right now.\n";
 		response = 1337;
-		if(menu.mainMenu(0)){
-		    return 0;
-		}
-		else{
-		    continue;
-		}
+    	    }
+	    //Sales associate login
+	    else if(response == 4){
+		cout << "if we had a SA login you would be using it right now.\n";
+		response = 1337;
     	    }
     }
 }
