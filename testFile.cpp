@@ -95,7 +95,58 @@
     robomodel.setName("name lol");
     robomodel.setDescription("descript this");
     robomodel.setPrice(45);  
- 
+
+    cout << "\nrobomodel\n";
+    cout << "torso:\n";
+    cout << "SN: " << robomodel.getTorso().getSN() << "\n";
+    cout << "Weight: " << robomodel.getTorso().getWeight() << "\n";
+    cout << "Description: " << robomodel.getTorso().getDescription() << "\n";
+    cout << "Cost: " << robomodel.getTorso().getCost() << "\n";
+    cout << "batteryspace: " << robomodel.getTorso().getBSpace() << "\n";
+    cout << "draw: " << robomodel.getTorso().getDraw() << "\n";
+    cout << "name: " << robomodel.getTorso().getName() << "\n";
+
+    cout << "\nleg:\n";
+    cout << "SN: " << robomodel.getLeg().getSN() << "\n";
+    cout << "Weight: " << robomodel.getLeg().getWeight() << "\n";
+    cout << "Description: " << robomodel.getLeg().getDescription() << "\n";
+    cout << "Cost: " << robomodel.getLeg().getCost() << "\n";
+    cout << "passivedraw: " << robomodel.getLeg().getpassiveDraw() << "\n";
+    cout << "activedraw: " << robomodel.getLeg().getactiveDraw() << "\n";
+    cout << "name: " << robomodel.getLeg().getName() << "\n";
+    cout << "speed: " << robomodel.getLeg().getSpeed() << "\n";
+
+    cout << "\nhead:\n";
+    cout << "SN: " << robomodel.getHead().getSN() << "\n";
+    cout << "Weight: " << robomodel.getHead().getWeight() << "\n";
+    cout << "Description: " << robomodel.getHead().getDescription() << "\n";
+    cout << "Cost: " << robomodel.getHead().getCost() << "\n";
+    cout << "draw: " << robomodel.getHead().getDraw() << "\n";
+    cout << "name: " << robomodel.getHead().getName() << "\n";
+    cout << "laser: " << robomodel.getHead().getLaser() << "\n";
+
+for(int i = 0; i < robomodel.getArmCount(); i ++){
+    cout << "\narm:\n";
+    cout << "SN: " << robomodel.getArm(i).getSN() << "\n";
+    cout << "Weight: " << robomodel.getArm(i).getWeight() << "\n";
+    cout << "Description: " << robomodel.getArm(i).getDescription() << "\n";
+    cout << "Cost: " << robomodel.getArm(i).getCost() << "\n";
+    cout << "passivedraw: " << robomodel.getArm(i).getpassiveDraw() << "\n";
+    cout << "activedraw: " << robomodel.getArm(i).getactiveDraw() << "\n";
+    cout << "name: " << robomodel.getArm(i).getName() << "\n";
+    cout << "laser: " << robomodel.getArm(i).getLaser() << "\n";
+}
+
+for(int i = 0; i < robomodel.getBatteryCount(); i ++){
+    cout << "\nbattery:\n";
+    cout << "SN: " << robomodel.getBattery(i).getSN() << "\n";
+    cout << "Weight: " << robomodel.getBattery(i).getWeight() << "\n";
+    cout << "Description: " << robomodel.getBattery(i).getDescription() << "\n";
+    cout << "Cost: " << robomodel.getBattery(i).getCost() << "\n";
+    cout << "name: " << robomodel.getBattery(i).getName() << "\n";
+    cout << "charge: " << robomodel.getBattery(i).getCharge() << "\n";
+}
+
     testStore.addRoboModel(robomodel); 
     testStore.printCatalogue();    
     cout << "\nThe cost of this model is " << testStore.getRoboModel(0).getCost() << "\n";

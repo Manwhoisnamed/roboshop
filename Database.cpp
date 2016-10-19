@@ -12,6 +12,7 @@ void Database::printCustomers(){
 	cout << i + 1 << " - Name: " << Database::customers.at(i).getName() << "\n";
 	cout << "    Address: " << Database::customers.at(i).getAddress() << "\n";
 	cout << "    Pin: " << Database::customers.at(i).getPin() << "\n";
+        cout << "\n";
     }
     cout << "\n";
 }

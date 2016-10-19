@@ -58,11 +58,11 @@ Leg RoboModel::getLeg(){
 }
 
 Arm RoboModel::getArm(int i){
-    return RoboModel::arms.at(i - 1);
+    return RoboModel::arms.at(i);
 }
 
 Battery RoboModel::getBattery(int i){
-    return RoboModel::batteries.at(i - 1);
+    return RoboModel::batteries.at(i);
 }
 
 Head RoboModel::getHead(){

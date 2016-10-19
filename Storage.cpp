@@ -209,7 +209,7 @@ void Storage::printTorsos(){
 
 //prints a single very detailed RoboModel
 void Storage::printRoboModel(RoboModel robomodel){
-    
+	    
 }
 
 //prints a list of RoboModels with only the key facts
