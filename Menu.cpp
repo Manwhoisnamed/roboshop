@@ -2,13 +2,11 @@
 //this class is in charge of the menu
 #include "Menu.h"
 #include "Workshop.h"
-#include "Storage.h"
 
 #define INVALID response<0||response>3
 
 using namespace std;
 Workshop workshop;
-Storage storage;
 
 //used to see who the user is
 int Menu::getPerm(){
@@ -21,7 +19,7 @@ void Menu::setPerm(int perm){
 }
 
 //if this returns true it will exit overall, otherwise it will return to login
-bool Menu::mainMenu(int perm){
+bool Menu::mainMenu(int perm, Storage storage){
     int response = 1337;
     setPerm(perm);
     if(getPerm() == 0){

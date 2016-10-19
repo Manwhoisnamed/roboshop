@@ -220,6 +220,7 @@ void Storage::printCatalogue(){
 	cout << "    Battery Life (active): " << Storage::robomodels.at(i).getActiveLife() << " hours\n";
 	cout << "    Battery Life (passive): " << Storage::robomodels.at(i).getPassiveLife() << " hours\n";	
 	cout << "    Price: " << Storage::robomodels.at(i).getPrice() << " USD\n";
+	cout << "    Total Weight: " << Storage::robomodels.at(i).getWeight() << " kg\n";
     }
 }
 

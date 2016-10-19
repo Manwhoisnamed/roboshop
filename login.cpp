@@ -2,6 +2,9 @@
 //This is the file to start all of the rest of the program
 #include "testFile.cpp"
 #include "Menu.h"
+#include "Storage.h"
+#include "Database.h"
+#include "SalesFloor.h"
 
 using namespace std;
 
@@ -11,6 +14,7 @@ using namespace std;
 int main(void){
     int response = 1337;
     Menu menu;
+    Storage storage;
     //keep going if somebody logs out but doesn't want to quit
     while(true){
 	    while(VALID){    
@@ -46,7 +50,7 @@ int main(void){
 	    else if(response == 2){
 		response = 1337;
 		//if mainmenu returns true it means it is quitting
-		if(menu.mainMenu(1)){
+		if(menu.mainMenu(1,storage)){
 		    return 0;
 		}
 		//otherwise it was a logout

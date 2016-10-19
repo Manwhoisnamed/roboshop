@@ -38,6 +38,7 @@
     double getPassiveLife();
     double getPrice();
     string getDescription();
+    double getWeight();
 
   private:
     int batterySpace;

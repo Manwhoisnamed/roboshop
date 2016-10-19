@@ -92,8 +92,8 @@ Arm Workshop::makeArm(){
     //variables used to make the specific part
     bool laser;
 
-    cout << "\nYou are making a leg\n";
-    cout << "======================\n";
+    cout << "\nYou are making an arm\n";
+    cout << "=======================\n";
  
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
@@ -172,7 +172,7 @@ Head Workshop::makeHead(){
     bool laser;
 
     cout << "\nYou are making a head\n";
-    cout << "======================\n";
+    cout << "=====================\n";
     
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
@@ -438,7 +438,9 @@ RoboModel Workshop::makeRoboModel(Storage storage){
         cout << "\nWhat would you like to do for the arms?\n";
 	cout << "========================================\n";
     	cout << "You currently have " << aCount << " arms on your model.\n";
+	if(aCount == 1){
 	cout << "0 - Continue, you are satisfied with the amount of arms.\n";
+	}
 	cout << "1 - Add one of your own arms.\n";
         if(storage.armSize() != 0){
             cout << "2 - Load one of the arms we have on hand\n";
@@ -452,7 +454,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 	    cout << "Bad input. Please try again.\n";
             response = 1337;
 	}
-        else if(response == 0){
+        else if(response == 0 && aCount == 1){
 	    break;
 	}
 	else if(response == 1){

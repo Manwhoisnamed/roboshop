@@ -5,6 +5,8 @@
  #include "Head.h"
  #include "Torso.h"
  #include "Storage.h"
+ #include "Database.h"
+ #include "Customer.h"
 
  using namespace std; 
 
@@ -13,7 +15,7 @@
     //variables for the RoboPart
     string name = "super awesome part";
     int SN = 1234;
-    double weight = 1234.12;
+    double weight = 4321.21;
     double cost = 1234.12;
     string description = "This is a great description";
     
@@ -66,7 +68,8 @@
     cout << "\nThe type of the part is: " << torso.getType() << "\n";
     cout << "The draw on the torso is " << torso.getDraw() << " Kilowatts.\n";
     cout << "The torso can hold " << torso.getBSpace() << " batteries.\n";
-  
+    
+    //check storage
     testStore.addArm(arm);
     testStore.printArms();   
 
@@ -81,4 +84,27 @@
 
     testStore.addTorso(torso);
     testStore.printTorsos();   
+
+    //robomodel testing
+    RoboModel robomodel;
+    robomodel.setTorso(torso);
+    robomodel.setLeg(leg);
+    robomodel.setHead(head);
+    robomodel.addBattery(battery);
+    robomodel.addArm(arm);
+    robomodel.setName("name lol");
+    robomodel.setDescription("descript this");
+    robomodel.setPrice(45);  
+ 
+    testStore.addRoboModel(robomodel); 
+    testStore.printCatalogue();    
+    cout << "\nThe cost of this model is " << testStore.getRoboModel(0).getCost() << "\n";
+
+    Database testBase;
+    Customer customer("Fred Williams", 1234, "4705 roady road");
+    testBase.addCustomer(customer);
+    testBase.printCustomers();
+
+
+    
  };

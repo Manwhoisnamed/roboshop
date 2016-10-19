@@ -1,6 +1,7 @@
 //maxwell sanders 1001069652
 //this is the header to the menu class
 
+#include "Storage.h"
 #include <iostream>
 
  #ifndef __MENU_H
@@ -12,6 +13,6 @@
 	    Menu(){};
 	    void setPerm(int perm);
 	    int getPerm();
-	    bool mainMenu(int perm);
+	    bool mainMenu(int perm, Storage storage);
  };
  #endif

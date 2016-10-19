@@ -67,15 +67,15 @@ int RoboModel::getMN(){
 
 double RoboModel::getActiveLife(){
    double charge = 0, draw = 0, life;
-   double i;
-   for( i : RoboModel::batteries){
-	charge+=i.getCharge();
+   int i;
+   for( i = 0; i < RoboModel::batteries.size(); i ++){
+	charge+=batteries.at(i).getCharge();
    }
    draw += RoboModel::torso.getDraw();
    draw += RoboModel::leg.getactiveDraw();
    draw += RoboModel::head.getDraw();
-   for( i : RoboModel::arms){
-	draw+=i.getactiveDraw();
+   for( i = 0; i < RoboModel::arms.size(); i ++){
+	charge+=arms.at(i).getactiveDraw();
    }
    life = charge / draw;
    return life;
@@ -83,15 +83,15 @@ double RoboModel::getActiveLife(){
 
 double RoboModel::getPassiveLife(){
    double charge = 0, draw = 0, life;
-   double i;
-   for( i : RoboModel::batteries){
-	charge+=i.getCharge();
+   int i;
+   for( i = 0; i < RoboModel::batteries.size(); i ++){
+	charge+=batteries.at(i).getCharge();
    }
    draw += RoboModel::torso.getDraw();
    draw += RoboModel::leg.getpassiveDraw();
    draw += RoboModel::head.getDraw();
-   for( i : RoboModel::arms){
-	draw+=i.getpassiveDraw();
+   for( i = 0; i < RoboModel::arms.size(); i ++){
+	charge+=arms.at(i).getpassiveDraw();
    }
    life = charge / draw;
    return life;
@@ -99,20 +99,16 @@ double RoboModel::getPassiveLife(){
 
 double RoboModel::getCost(){
    double cost;
-   double i;
+   int i;
    cost += RoboModel::torso.getCost();
    cost += RoboModel::leg.getCost();
    cost += RoboModel::head.getCost();
-   if(RoboModel::arms.size() != 0){
-       for( i : RoboModel::arms){
-           cost+=i.getCost();
-       }
+   for( i = 0; i < RoboModel::arms.size(); i++){
+       cost+=arms.at(i).getCost();
    }
-   if(RoboModel::batteries.size() != 0){
-       for( i : RoboModel::batteries){
-           cost+=i.getCost();
-       }  
-   }
+   for( i = 0; i < RoboModel::batteries.size(); i++){
+       cost+=batteries.at(i).getCost();
+   }  
    return cost;
 }
 
@@ -126,4 +122,19 @@ string RoboModel::getDescription(){
 
 string RoboModel::getName(){
     return RoboModel::name;
+}
+
+double RoboModel::getWeight(){
+   double weight;
+   int i;
+   weight += RoboModel::torso.getWeight();
+   weight += RoboModel::leg.getWeight();
+   weight += RoboModel::head.getWeight();
+   for( i = 0; i < RoboModel::arms.size(); i ++){
+       weight+=arms.at(i).getWeight();
+   }
+   for( i = 0; i < RoboModel::batteries.size(); i ++){
+       weight+=batteries.at(i).getWeight();
+   }  
+   return weight; 
 }
