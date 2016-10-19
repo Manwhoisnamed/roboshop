@@ -5,9 +5,34 @@
 
 //the mainMenu, needs customer info and the database and the storge for the catalogue
 bool SalesFloor::CustomerMenu(Customer &customer, Database &database, Storage storage){
-    cout << "congrats you got here";
+    int response = 1337;
+    cout << "\nWelcome Beloved " << customer.getName() << "!!!!!\n";
+    while(true){ 
+        cout << "Select a response to continue\n";
+	cout << "=============================\n";
+	cout << "0 - Exit the program\n";
+	cout << "1 - logout\n";
+	cout << "2 - look at the catalogue\n";
+        cout << "=============================\n";
+	cout << "Your response: ";
+	cin >> response;
+	if(cin.fail()){
+	    cin.clear();
+	    cin.ignore(400, '\n');
+	    cout << "Bad input. Try again\n\n";
+	}
+	else if(response == 0){
+	    return true;
+	}
+	else if(response == 1){
+	    return false;
+	}
+	else if(response == 2){
+	    storage.printCatalogue();
+	    cout << "\n";
+	}
 
-    return true;
+    }
 }
 
 //mainMenu for the Salesman, add customer, add order
@@ -21,7 +46,8 @@ bool SalesFloor::SAMenu(Database &database, Storage storage){
 	cout << "1 - logout \n";
 	cout << "2 - add a customer to the database\n";
 	cout << "3 - show all customers\n";
-	cout << "=============================\n";
+	cout << "4 - show the models we can sell to the customers\n";
+        cout << "=============================\n";
 	cout << "Your response: ";
 	cin >> response;
 	if(cin.fail()){
@@ -40,6 +66,10 @@ bool SalesFloor::SAMenu(Database &database, Storage storage){
 	}
 	else if(response == 3){
 	    database.printCustomers();
+	}
+	else if(response == 4){
+	    storage.printCatalogue();
+	    cout << "\n";
 	}
 	else{
 	    cout << "Not a valid input. Please try again.\n\n";
