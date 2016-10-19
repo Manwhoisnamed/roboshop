@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Database.h"
+#include "Storage.h"
 
 using namespace std;
 
@@ -14,8 +15,8 @@ class SalesFloor{
 
     public:
 	SalesFloor(){};
-        int mainMenu(int permissions, Database database);
-	Database addCustomer(Database database);
-
+        bool CustomerMenu(Customer &customer, Database &database, Storage storage);
+	void addCustomer(Database &database);
+	bool SAMenu(Database &database, Storage storage);
 };
 #endif

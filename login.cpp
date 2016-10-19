@@ -15,7 +15,10 @@ int main(void){
     int response = 1337;
     Menu menu;
     Storage storage;
+    SalesFloor salesfloor;
+    Database database;
     storage.loadStorage();
+    database.loadData();
     //keep going if somebody logs out but doesn't want to quit
     while(true){
 	    while(VALID){    
@@ -41,6 +44,7 @@ int main(void){
 	    //end the program
 	    if(response == 0){
 		storage.storeStorage(storage);
+		database.saveData();
 		return 0;
 	    }
 	    //run the test code
@@ -63,13 +67,19 @@ int main(void){
 	    }
 	    //customer login
 	    else if(response == 3){
-		cout << "if we had a customer login you would be using it right now.\n";
 		response = 1337;
+		
     	    }
 	    //Sales associate login
 	    else if(response == 4){
-		cout << "if we had a SA login you would be using it right now.\n";
 		response = 1337;
+		if(salesfloor.SAMenu(database, storage)){
+		    database.saveData();
+		    return 0;
+		}
+		else{
+		    continue;
+		}
     	    }
     }
 }
