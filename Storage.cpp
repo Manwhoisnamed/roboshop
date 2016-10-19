@@ -3,8 +3,11 @@
 
 #include "Storage.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 //this is the main ui for storage
+
 void Storage::useStorage(){
     int response = 1337;	
     //stay in the storage shed until you don't want to be in the storage shed
@@ -247,4 +250,117 @@ Head Storage::getHead(int i){
 
 RoboModel Storage::getRoboModel(int i){
     return Storage::robomodels.at(i);
+}
+
+//this is the method that saves all of the info into a file
+void Storage::storeStorage(Storage storage){
+    ofstream myfile;
+    myfile.open("Storage.txt");
+    int i, j;
+    for(i = 0; i < Storage::arms.size();i ++){
+	myfile << arms.at(i).getSN() << " " << arms.at(i).getWeight() << " " << arms.at(i).getCost() << " " << arms.at(i).getpassiveDraw() << " " << arms.at(i).getactiveDraw() << " " << arms.at(i).getLaser() << "\n"; 
+        myfile << arms.at(i).getName() << "\n";
+        myfile << arms.at(i).getDescription() << "\n";
+    }
+    myfile << "-1\n";
+    for(i = 0; i < Storage::heads.size();i ++){
+	myfile << heads.at(i).getSN() << " " << heads.at(i).getWeight() << " " << heads.at(i).getCost() << " " << heads.at(i).getDraw() << " " << heads.at(i).getLaser() << "\n"; 
+        myfile << heads.at(i).getName() << "\n";
+        myfile << heads.at(i).getDescription() << "\n";
+    }
+    myfile << "-1\n";
+    for(i = 0; i < Storage::torsos.size();i ++){
+	myfile << torsos.at(i).getSN() << " " << torsos.at(i).getWeight() << " " << torsos.at(i).getCost() << " " << torsos.at(i).getDraw() << " " << torsos.at(i).getBSpace() << "\n"; 
+        myfile << torsos.at(i).getName() << "\n";
+        myfile << torsos.at(i).getDescription() << "\n";
+    }
+    myfile << "-1\n";
+    for(i = 0; i < Storage::legs.size();i ++){
+	myfile << legs.at(i).getSN() << " " << legs.at(i).getWeight() << " " << legs.at(i).getCost() << " " << legs.at(i).getpassiveDraw() << " " << legs.at(i).getactiveDraw() << " " << legs.at(i).getSpeed() << "\n"; 
+        myfile << legs.at(i).getName() << "\n";
+        myfile << legs.at(i).getDescription() << "\n";
+    }
+    myfile << "-1\n";
+    for(i = 0; i < Storage::batteries.size();i ++){
+	myfile << batteries.at(i).getSN() << " " << batteries.at(i).getWeight() << " " << batteries.at(i).getCost() << " " << batteries.at(i).getCharge() << "\n"; 
+        myfile << batteries.at(i).getName() << "\n";
+        myfile << batteries.at(i).getDescription() << "\n";
+    }
+    myfile << "-1\n";
+    myfile.close();
+}
+
+void Storage::loadStorage(){
+   ifstream myfile("Storage.txt");
+   string line;
+   double weight, cost, charge, draw, passiveDraw, activeDraw;
+   int laser, SN, batteryspace, speed, MN;
+   string name;
+   string description;
+   //gets the arms
+   while(true){
+	getline(myfile, line);
+	if(line == "-1"){
+	    break;	
+	}
+	istringstream iss(line);
+	iss >> SN >> weight >> cost >> passiveDraw >> activeDraw >> laser;
+	getline(myfile,name);
+	getline(myfile,description);
+	Arm arm(name, SN, weight, cost, description, passiveDraw, activeDraw, laser);
+	Storage::arms.push_back(arm);
+   }
+   //gets the heads
+   while(true){
+	getline(myfile, line);
+	if(line == "-1"){
+	    break;	
+	}
+	istringstream iss(line);
+	iss >> SN >> weight >> cost >> draw >> laser;
+	getline(myfile,name);
+	getline(myfile,description);
+	Head head(name, SN, weight, cost, description, draw, laser);
+	Storage::heads.push_back(head);
+   }
+   //gets the torsos
+   while(true){
+	getline(myfile, line);
+	if(line == "-1"){
+	    break;	
+	}
+	istringstream iss(line);
+	iss >> SN >> weight >> cost >> draw >> batteryspace;
+	getline(myfile,name);
+	getline(myfile,description);
+	Torso torso(name, SN, weight, cost, description, draw, batteryspace);
+	Storage::torsos.push_back(torso);
+   }
+   //gets the legs
+   while(true){
+	getline(myfile, line);
+	if(line == "-1"){
+	    break;	
+	}
+	istringstream iss(line);
+	iss >> SN >> weight >> cost >> passiveDraw >> activeDraw >> speed;
+	getline(myfile,name);
+	getline(myfile,description);
+	Leg leg(name, SN, weight, cost, description, passiveDraw, activeDraw, speed);
+	Storage::legs.push_back(leg);
+   }
+   //gets the arms
+   while(true){
+	getline(myfile, line);
+	if(line == "-1"){
+	    break;	
+	}
+	istringstream iss(line);
+	iss >> SN >> weight >> cost >> charge;
+	getline(myfile,name);
+	getline(myfile,description);
+	Battery battery(name, SN, weight, cost, description, charge);
+	Storage::batteries.push_back(battery);
+   }
+   myfile.close();
 }

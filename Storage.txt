@@ -1,0 +1,20 @@
+45 12 532 1 20 1
+arm of awesome
+pretty awesome
+-1
+20 3 2 1 1
+head
+shoulders knees and toes
+-1
+100 20 2 4 1
+torso of cool
+really cool
+-1
+59 30 58 2 40 67
+1
+a leg
+-1
+39 3 3 80
+ihdfs
+garble
+-1

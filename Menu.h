@@ -13,6 +13,6 @@
 	    Menu(){};
 	    void setPerm(int perm);
 	    int getPerm();
-	    bool mainMenu(int perm, Storage storage);
+	    bool mainMenu(int perm, Storage &storage);
  };
  #endif

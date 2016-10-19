@@ -3,6 +3,14 @@
 
 #include "RoboModel.h"
 
+int RoboModel::getArmCount(){
+    return RoboModel::arms.size();
+}
+
+int RoboModel::getBatteryCount(){
+    return RoboModel::batteries.size();
+}
+
 void RoboModel::setTorso(Torso itorso){
     RoboModel::torso = itorso;
     RoboModel::batterySpace = itorso.getBSpace();
@@ -75,9 +83,9 @@ double RoboModel::getActiveLife(){
    draw += RoboModel::leg.getactiveDraw();
    draw += RoboModel::head.getDraw();
    for( i = 0; i < RoboModel::arms.size(); i ++){
-	charge+=arms.at(i).getactiveDraw();
+	draw+=arms.at(i).getactiveDraw();
    }
-   life = charge / draw;
+   life = (1000 * charge) / draw;
    return life;
 }
 
@@ -91,9 +99,9 @@ double RoboModel::getPassiveLife(){
    draw += RoboModel::leg.getpassiveDraw();
    draw += RoboModel::head.getDraw();
    for( i = 0; i < RoboModel::arms.size(); i ++){
-	charge+=arms.at(i).getpassiveDraw();
+	draw+=arms.at(i).getpassiveDraw();
    }
-   life = charge / draw;
+   life = (1000 * charge) / draw;
    return life;
 }
 

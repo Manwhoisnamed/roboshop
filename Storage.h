@@ -60,6 +60,10 @@
     Head getHead(int i);
     RoboModel getRoboModel(int i);
 
+    //persistence
+    void loadStorage();
+    void storeStorage(Storage storage);
+
     //data validation suite
     void checkArms(Arm arm);
     void checkLegs(Leg leg);

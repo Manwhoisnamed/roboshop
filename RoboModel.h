@@ -39,6 +39,8 @@
     double getPrice();
     string getDescription();
     double getWeight();
+    int getArmCount();
+    int getBatteryCount();
 
   private:
     int batterySpace;

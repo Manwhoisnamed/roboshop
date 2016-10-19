@@ -19,7 +19,7 @@ void Menu::setPerm(int perm){
 }
 
 //if this returns true it will exit overall, otherwise it will return to login
-bool Menu::mainMenu(int perm, Storage storage){
+bool Menu::mainMenu(int perm, Storage &storage){
     int response = 1337;
     setPerm(perm);
     if(getPerm() == 0){

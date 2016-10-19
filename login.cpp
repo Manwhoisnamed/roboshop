@@ -15,6 +15,7 @@ int main(void){
     int response = 1337;
     Menu menu;
     Storage storage;
+    storage.loadStorage();
     //keep going if somebody logs out but doesn't want to quit
     while(true){
 	    while(VALID){    
@@ -39,6 +40,7 @@ int main(void){
 	    }
 	    //end the program
 	    if(response == 0){
+		storage.storeStorage(storage);
 		return 0;
 	    }
 	    //run the test code
@@ -51,6 +53,7 @@ int main(void){
 		response = 1337;
 		//if mainmenu returns true it means it is quitting
 		if(menu.mainMenu(1,storage)){
+		    storage.storeStorage(storage);
 		    return 0;
 		}
 		//otherwise it was a logout
