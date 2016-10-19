@@ -14,6 +14,7 @@ class Customer{
 	string address;
     public:
 	Customer(string iname, int ipin, string iaddress): name(iname), pin(ipin), address(iaddress){}
+	Customer(){};
 
 	//getters
 	string getName();

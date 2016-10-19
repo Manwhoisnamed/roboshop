@@ -5,7 +5,7 @@
 
 //the mainMenu, needs customer info and the database and the storge for the catalogue
 bool SalesFloor::CustomerMenu(Customer &customer, Database &database, Storage storage){
-
+    cout << "congrats you got here";
 
     return true;
 }
@@ -41,6 +41,9 @@ bool SalesFloor::SAMenu(Database &database, Storage storage){
 	else if(response == 3){
 	    database.printCustomers();
 	}
+	else{
+	    cout << "Not a valid input. Please try again.\n\n";
+	}
     }
 }
 
@@ -52,17 +55,17 @@ void SalesFloor::addCustomer(Database &database){
     string address;
     
     //name and address
-    cout << "\nWhat is the name of the customer? ";
+    cout << "\nEnter name:  ";
     //clear the channel
     cin.ignore(1000,'\n');
     cin.getline(input, 100);
     name = input;
-    cout << "Enter the address of the customer: ";
+    cout << "Enter current address: ";
     cin.getline(input,300);
     address = input;
 
     while(true){
-	cout << "What pin does the customer want: ";
+	cout << "Enter desired pin: ";
 	cin >> pin;
 	if(cin.fail()){
 	    cin.clear();

@@ -27,7 +27,7 @@ int main(void){
 		cout << "===================================================\n";
 		cout << "What level of responsibility do you want to have?\n";
 		cout << "0 - Shut down the program, truly no responsibility, you didn't even mean to be here.\n";
-		cout << "1 - System Maintenance, some responsibilty, you should probably fix the problems that show up.\n";
+		cout << "1 - System Maintenance, some responsibility, you should probably fix the problems that show up.\n";
 		cout << "2 - Rob Robman, project manager.\n";
 		cout << "3 - Customer login, your responsibility as a consumer is to look at our catalogue.\n";
 		cout << "4 - Sales Associate login, your responsibility as a salesman is to create orders.\n";
@@ -67,6 +67,65 @@ int main(void){
 	    }
 	    //customer login
 	    else if(response == 3){
+		cout << "\nWELCOME BELOVED CUSTOMER!!!!\n";
+		while(true){
+		    cout << "Enter a response below\n";
+		    cout << "======================\n";
+		    cout << "0 - Go back to the menu\n";
+		    cout << "1 - Login with your pin\n";
+		    cout << "2 - Register\n";
+		    cout << "======================\n";
+		    cout << "Your response: ";
+		    cin >> response;
+		    if(cin.fail()){
+			cin.clear();
+			cin.ignore(400, '\n');
+			cout << "Bad input. Try again\n\n";
+		    }
+		    else if(response == 0){
+			break;
+		    }
+		    else if(response == 1){
+			int tries = 0, pin, badpin = true;
+			cout << "\n";
+			for(tries = 0; tries < 3; tries ++){
+			    cout << "What is your pin: ";
+			    cin >> pin;
+			    if(cin.fail()){
+	    			cin.clear();
+	    			cin.ignore(400,'\n');
+	    			cout << "Bad input. ";
+			    }
+			    else if(database.checkPin(pin)){
+				Customer customer;
+				customer = database.loadCustomerPin(pin);
+				if(salesfloor.CustomerMenu(customer, database, storage)){
+			   	    database.saveData();
+				    return 0;
+				}
+				else{
+				    badpin = false;
+				    break;
+				}
+			    }	 
+			    else{
+				cout << "Invalid pin. ";
+			    }
+			}
+			if(badpin){
+			    cout << "\n3 tries failed returning to the login page.\n\n";	
+			}
+			break;
+		    }
+		    else if(response == 2){
+			salesfloor.addCustomer(database);
+		    	cout << "You successfully registered, continue to login.\n\n";
+			continue;
+		    }
+		    else{
+			cout << "Not a valid input.\n\n";
+		    }
+		}
 		response = 1337;
 		
     	    }
