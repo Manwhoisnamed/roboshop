@@ -246,6 +246,7 @@ void Storage::printCatalogue(){
 	    cout << "  Description: " << robomodels.at(i).getBattery(j).getDescription() << "\n"; 
 	    cout << "============================\n";
 	}
+	cout << "\n";
     }
 }
 

@@ -58,4 +58,32 @@ garble
 4567 56
 model
 description
+torso-----------
+100 20 1 4 2
+torso of cool
+really cool
+leg-------------
+59 30 67 2 40 58
+1
+a leg
+head------------
+20 3 1 4 58
+head
+shoulders knees and toes
+arms------------
+45 12 1 1 20 532
+arm of awesome
+pretty awesome
+45 12 1 1 20 532
+arm of awesome
+pretty awesome
+-2
+batteries-------
+123 500 70000 0.001
+party mcpart
+this part is the best budget battery we have
+-2
+1200 123
+awesome model
+really super good
 -1

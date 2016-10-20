@@ -57,11 +57,13 @@ int main(void){
 		response = 1337;
 		//if mainmenu returns true it means it is quitting
 		if(menu.mainMenu(1,storage)){
+		    database.saveData();
 		    storage.storeStorage(storage);
 		    return 0;
 		}
 		//otherwise it was a logout
 		else{
+		    storage.storeStorage(storage);
 		    continue;
 		}
 	    }
@@ -101,9 +103,11 @@ int main(void){
 				customer = database.loadCustomerPin(pin);
 				if(salesfloor.CustomerMenu(customer, database, storage)){
 			   	    database.saveData();
+				    storage.storeStorage(storage);
 				    return 0;
 				}
 				else{
+				    database.saveData();
 				    badpin = false;
 				    break;
 				}
@@ -133,10 +137,12 @@ int main(void){
 	    else if(response == 4){
 		response = 1337;
 		if(salesfloor.SAMenu(database, storage)){
+		    storage.storeStorage(storage);
 		    database.saveData();
 		    return 0;
 		}
 		else{
+		    database.saveData();
 		    continue;
 		}
     	    }
