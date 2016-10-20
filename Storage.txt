@@ -1,20 +1,58 @@
+ARMS==========================
 45 12 532 1 20 1
 arm of awesome
 pretty awesome
+123 2 1 1 45 1
+
+
 -1
+HEADS=========================
 20 3 2 1 1
 head
 shoulders knees and toes
 -1
+TORSOS========================
 100 20 2 4 1
 torso of cool
 really cool
 -1
+LEGS==========================
 59 30 58 2 40 67
 1
 a leg
 -1
+BATTERIES=====================
 39 3 3 80
 ihdfs
 garble
+-1
+ROBOMODELS====================
+torso-----------
+100 20 1 4 2
+torso of cool
+really cool
+leg-------------
+59 30 67 2 40 58
+1
+a leg
+head------------
+20 3 1 4 58
+head
+shoulders knees and toes
+arms------------
+45 12 1 1 20 532
+arm of awesome
+pretty awesome
+45 12 1 1 20 532
+arm of awesome
+pretty awesome
+-2
+batteries-------
+39 3 80 3
+ihdfs
+garble
+-2
+4567 56
+model
+description
 -1

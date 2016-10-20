@@ -47,12 +47,16 @@ bool Database::checkPin(int pin){
 void Database::saveData(){
     int i = 0;
     ofstream myfile("Database.txt");
+   
+    //stores the customers
+    myfile << "Customers================\n";
     for(i = 0; i < Database::customers.size(); i ++){
 	myfile << customers.at(i).getName() << "\n";
 	myfile << customers.at(i).getPin() << "\n";
 	myfile << customers.at(i).getAddress() << "\n";	
     }
     myfile << "-1\n";
+
     myfile.close();
 }
 
@@ -60,6 +64,9 @@ void Database::loadData(){
     ifstream myfile("Database.txt");
     string line, name, address;
     int pin;
+  
+    //gets the customers
+    getline(myfile, line);
     while(true){
 	getline(myfile,name);
 	if(name == "-1"){
