@@ -7,6 +7,7 @@
  #include "Storage.h"
  #include "Database.h"
  #include "Customer.h"
+ #include "Order.h"
 
  using namespace std; 
 
@@ -95,6 +96,7 @@
     robomodel.setName("name lol");
     robomodel.setDescription("descript this");
     robomodel.setPrice(45);  
+    robomodel.setMN(2);
 
     cout << "\nrobomodel\n";
     cout << "torso:\n";
@@ -156,6 +158,12 @@ for(int i = 0; i < robomodel.getBatteryCount(); i ++){
     testBase.addCustomer(customer);
     testBase.printCustomers();
 
-
-    
+    //tests orders here
+    Order order;
+    order.setQuantity(4);
+    order.setModelNumber(2);
+    order.setCustomerPin(1234);
+    order.calculatePrice(testStore);
+ 
+    cout << "The final price after fees (shipping/handling/tax) is " << order.getPrice() << "\n";   
  };

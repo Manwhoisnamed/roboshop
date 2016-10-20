@@ -4,28 +4,31 @@
 
 #include <string>
 #include "RoboModel.h";
+#include "Storage.h";
 
 using namespace std;
 
-#ifndef __CUSTOMER_H
-#define __CUSTOMER_H 2016
+#ifndef __ORDER_H
+#define __ORDER_H 2016
 class Order{
     private:
-	int Customerpin;
+	int customerpin;
 	int ModelNumber;
 	int quantity;
+	double price;
     public:
-	Order order(){};
+	Order(){};
 
 	//getters
 	int getCustomerPin();
-	int getquantity();
+	int getQuantity();
 	int getModelNumber();
+	double getPrice();
 	
 	//setters
 	void setCustomerPin(int pin);
 	void setQuantity(int num);
 	void setModelNumber(int MN);
-	
+	void calculatePrice(Storage storage);
 };
 #endif

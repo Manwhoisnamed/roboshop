@@ -207,14 +207,9 @@ void Storage::printTorsos(){
 
 }
 
-//prints a single very detailed RoboModel
-void Storage::printRoboModel(RoboModel robomodel){
-	    
-}
-
 //prints a list of RoboModels with only the key facts
 void Storage::printCatalogue(){
-    int i = 0, size = Storage::robomodels.size();
+    int i = 0, j = 0, size = Storage::robomodels.size();
     cout << "\nAll available RoboModels\n";
     cout << "========================\n";
     for(i = 0; i < size; i ++){
@@ -224,6 +219,33 @@ void Storage::printCatalogue(){
 	cout << "    Battery Life (passive): " << Storage::robomodels.at(i).getPassiveLife() << " hours\n";	
 	cout << "    Price: " << Storage::robomodels.at(i).getPrice() << " USD\n";
 	cout << "    Total Weight: " << Storage::robomodels.at(i).getWeight() << " kg\n";
+    	cout << "    MN: " << Storage::robomodels.at(i).getMN() << "\n";
+	cout << "============================\n";
+	cout << "Torso - " << robomodels.at(i).getTorso().getName() << "\n";
+	cout << "  Description: " << robomodels.at(i).getTorso().getDescription() << "\n"; 
+	cout << "============================\n";
+	cout << "Head - " << robomodels.at(i).getHead().getName() << "\n";
+	cout << "  Description: " << robomodels.at(i).getHead().getDescription() << "\n"; 
+	if(robomodels.at(i).getHead().getLaser()){
+	    cout << "***This head contains a laser***\n";
+	}
+	cout << "============================\n";
+	cout << "Leg - " << robomodels.at(i).getLeg().getName() << "\n";
+	cout << "  Description: " << robomodels.at(i).getLeg().getDescription() << "\n"; 
+	cout << "============================\n";
+	for(j = 0; j < robomodels.at(i).getArmCount(); j ++){
+	    cout << "Arm - " << robomodels.at(i).getArm(j).getName() << "\n";
+	    cout << "  Description: " << robomodels.at(i).getArm(j).getDescription() << "\n"; 
+	    if(robomodels.at(i).getArm(j).getLaser()){
+	 	cout << "***This arm contains a laser***\n";
+	    }
+	    cout << "============================\n";
+	}
+	for(j = 0; j < robomodels.at(i).getBatteryCount(); j ++){
+	    cout << "Battery - " << robomodels.at(i).getBattery(j).getName() << "\n";
+	    cout << "  Description: " << robomodels.at(i).getBattery(j).getDescription() << "\n"; 
+	    cout << "============================\n";
+	}
     }
 }
 
