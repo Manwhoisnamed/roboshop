@@ -18,7 +18,7 @@ int main(void){
     SalesFloor salesfloor;
     Database database;
     storage.loadStorage();
-    database.loadData();
+    database.loadData(storage);
     //keep going if somebody logs out but doesn't want to quit
     while(true){
 	    while(VALID){    

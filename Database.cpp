@@ -101,16 +101,16 @@ void Database::saveData(){
     myfile << "-1\n";
     myfile << "Orders===================\n";
     for(i = 0; i < Database::orders.size(); i++){
-	myfile << orders.at(i).getCustomerPin() << " " << orders.at(i).getModelNumber() << " " <<  orders.at(i).getPrice() << " " << orders.at(i).getQuantity() << "\n";
+	myfile << orders.at(i).getCustomerPin() << " " << orders.at(i).getModelNumber() << " " << orders.at(i).getQuantity() << "\n";
     }
     myfile << "-1\n";
     myfile.close();
 }
 
-void Database::loadData(){
+void Database::loadData(Storage storage){
     ifstream myfile("Database.txt");
     string line, name, address;
-    int pin;
+    int pin, MN, quantity;
   
     //gets the customers
     getline(myfile, line);
@@ -120,11 +120,26 @@ void Database::loadData(){
 	    break;
 	}
 	getline(myfile, line);
-	istringstream iss(line);
-	iss >> pin;
+	istringstream custLine(line);
+	custLine >> pin;
 	getline(myfile, address);
 	Customer customer(name, pin, address);
 	Database::customers.push_back(customer);
+    }
+    getline(myfile, line);
+    while(true){
+	getline(myfile, line);
+        if(line == "-1"){
+	    break;
+	}
+	istringstream ordLine(line);
+	ordLine >> pin >> MN >> quantity;
+	Order order;
+	order.setCustomerPin(pin);
+	order.setModelNumber(MN);
+	order.setQuantity(quantity);
+	order.calculatePrice(storage);
+	Database::orders.push_back(order);
     }
     myfile.close();
 }

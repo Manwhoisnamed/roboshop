@@ -75,7 +75,7 @@ bool SalesFloor::CustomerMenu(Customer &customer, Database &database, Storage st
 	    database.printMyOrders(customer.getPin(), storage);
 	}
 	else{
-	    cout << "That is not a valid response\n";
+	    cout << "That is not a valid response\n\n";
 	}
     }
 }

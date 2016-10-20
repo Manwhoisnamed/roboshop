@@ -33,6 +33,6 @@ class Database{
 	
 	//persistence stuff
 	void saveData();
-	void loadData();
+	void loadData(Storage storage);
 };
 #endif
