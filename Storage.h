@@ -59,16 +59,19 @@
     Torso getTorso(int i);
     Head getHead(int i);
     RoboModel getRoboModel(int i);
+    RoboModel getRoboModelMN(int MN);
 
     //persistence
     void loadStorage();
     void storeStorage(Storage storage);
 
     //data validation suite
-    void checkArms(Arm arm);
-    void checkLegs(Leg leg);
-    void checkBatteries(Battery battery);
-    void checkTorsos(Torso torso);
-    void checkHeads(Head head); 
+    bool checkArms(int SN);
+    bool checkLegs(int SN);
+    bool checkBatteries(int SN);
+    bool checkTorsos(int SN);
+    bool checkHeads(int SN);
+    bool checkRoboModels(int SN); 
+    
  };
  #endif

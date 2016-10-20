@@ -42,27 +42,27 @@ Storage Workshop::useWorkshop(Storage storage){
 	}
 	//make torso
 	else if(response == 1){
-	    storage.addTorso(makeTorso());
+	    storage.addTorso(makeTorso(storage));
 	    response = 1337;
 	}
 	//make arm
 	else if(response == 2){
-	    storage.addArm(makeArm());
+	    storage.addArm(makeArm(storage));
 	    response = 1337;
 	}
 	//make leg
 	else if(response == 3){
-	    storage.addLeg(makeLeg());
+	    storage.addLeg(makeLeg(storage));
 	    response = 1337;
 	}
 	//make head
 	else if(response == 4){
-	    storage.addHead(makeHead());
+	    storage.addHead(makeHead(storage));
 	    response = 1337;
 	}
 	//make battery
 	else if(response == 5){
-	    storage.addBattery(makeBattery());
+	    storage.addBattery(makeBattery(storage));
 	    response = 1337;
 	}
 
@@ -78,7 +78,7 @@ Storage Workshop::useWorkshop(Storage storage){
 }
 
 //this makes an arm object and returns it
-Arm Workshop::makeArm(){
+Arm Workshop::makeArm(Storage storage){
     //input variables
     int response;    
     
@@ -97,6 +97,10 @@ Arm Workshop::makeArm(){
  
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
+    while(storage.checkArms(SN)){
+	cout << "That SN is already in use. ";
+	SN = inputInt("What is the SN of the part: ");
+    }
 
     //passive draw
     double passiveDraw = inputDouble("What is the passive draw? ");
@@ -125,7 +129,7 @@ Arm Workshop::makeArm(){
 }
 
 //this makes a leg object and returns it
-Leg Workshop::makeLeg(){
+Leg Workshop::makeLeg(Storage storage){
     //input variables
     int response;    
 
@@ -141,6 +145,10 @@ Leg Workshop::makeLeg(){
 
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
+    while(storage.checkLegs(SN)){
+	cout << "That SN is already in use. ";
+	SN = inputInt("What is the SN of the part: ");
+    }
 
     //passive draw
     double passiveDraw = inputDouble("What is the passive draw? ");
@@ -156,7 +164,7 @@ Leg Workshop::makeLeg(){
 }
 
 //this makes a head object and returns it
-Head Workshop::makeHead(){
+Head Workshop::makeHead(Storage storage){
     //input variables
     char input[200];
     int response;    
@@ -176,6 +184,10 @@ Head Workshop::makeHead(){
     
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
+    while(storage.checkHeads(SN)){
+	cout << "That SN is already in use. ";
+	SN = inputInt("What is the SN of the part: ");
+    }
 
     //draw
     double draw = inputDouble("What is the draw? ");
@@ -201,7 +213,7 @@ Head Workshop::makeHead(){
 }
 
 //this makes a torso object
-Torso Workshop::makeTorso(){
+Torso Workshop::makeTorso(Storage storage){
     //input variables
     char input[200]; 
 
@@ -220,6 +232,10 @@ Torso Workshop::makeTorso(){
 
     //populates robopart variables
     PRV(name, description, weight, cost, SN);    
+    while(storage.checkTorsos(SN)){
+	cout << "That SN is already in use. ";
+	SN = inputInt("What is the SN of the part: ");
+    }
 
     //draw
     double draw = inputDouble("What is the draw? ");
@@ -239,7 +255,7 @@ Torso Workshop::makeTorso(){
 }
 
 //this makes a battery object
-Battery Workshop::makeBattery(){
+Battery Workshop::makeBattery(Storage storage){
 
     //variables necessary for RoboPart
     string name;
@@ -252,6 +268,10 @@ Battery Workshop::makeBattery(){
     cout << "========================\n";
 
     PRV(name,description, weight, cost, SN);
+    while(storage.checkBatteries(SN)){
+	cout << "That SN is already in use. ";
+	SN = inputInt("What is the SN of the part: ");
+    }
 
     //charge
     double charge = inputDouble("What is the charge? ");
@@ -288,7 +308,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
             response = 1337;
 	}
 	else if(response == 1){
-	    robomodel.setTorso(makeTorso());
+	    robomodel.setTorso(makeTorso(storage));
 	    break;
 	}
 	else if(response == 2 && storage.torsoSize()){
@@ -306,7 +326,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 		    response = 1337;
 		}
 	        else if(response == 0){
-		    robomodel.setTorso(makeTorso());
+		    robomodel.setTorso(makeTorso(storage));
 		    break;
 	        }
 		else if(response > 0 && response <= storage.torsoSize()){
@@ -342,7 +362,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
             response = 1337;
 	}
 	else if(response == 1){
-	    robomodel.setHead(makeHead());
+	    robomodel.setHead(makeHead(storage));
 	    break;
 	}
 	else if(response == 2 && storage.headSize()){
@@ -360,7 +380,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 		    response = 1337;
 		}
 	        else if(response == 0){
-		    robomodel.setHead(makeHead());
+		    robomodel.setHead(makeHead(storage));
 		    break;
 	        }
 		else if(response > 0 && response <= storage.headSize()){
@@ -396,7 +416,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
             response = 1337;
 	}
 	else if(response == 1){
-	    robomodel.setLeg(makeLeg());
+	    robomodel.setLeg(makeLeg(storage));
 	    break;
 	}
 	else if(response == 2 && storage.legSize()){
@@ -414,7 +434,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 		    response = 1337;
 		}
 	        else if(response == 0){
-		    robomodel.setLeg(makeLeg());
+		    robomodel.setLeg(makeLeg(storage));
 		    break;
 	        }
 		else if(response > 0 && response <= storage.legSize()){
@@ -458,7 +478,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 	    break;
 	}
 	else if(response == 1){
-	    robomodel.addArm(makeArm());
+	    robomodel.addArm(makeArm(storage));
 	    aCount ++;
 	    response = 1337;
 	}
@@ -477,7 +497,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 		    response = 1337;
 		}
 	        else if(response == 0){
-		    robomodel.addArm(makeArm());
+		    robomodel.addArm(makeArm(storage));
 		    aCount++;
 		    response = 1337;
 		    break;
@@ -526,7 +546,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 	    break;
 	}
 	else if(response == 1){
-	    robomodel.addBattery(makeBattery());
+	    robomodel.addBattery(makeBattery(storage));
 	    bCount ++;
 	    response = 1337;
 	}
@@ -545,7 +565,7 @@ RoboModel Workshop::makeRoboModel(Storage storage){
 		    response = 1337;
 		}
 	        else if(response == 0){
-		    robomodel.addBattery(makeBattery());
+		    robomodel.addBattery(makeBattery(storage));
 		    bCount++;
 		    response = 1337;
 		    break;
@@ -589,7 +609,12 @@ RoboModel Workshop::makeRoboModel(Storage storage){
     cin.getline(input,300);
     description = input;
 
+    //data validation
     MN = inputInt("Enter a model number: ");
+    while(storage.checkRoboModels(MN)){
+	cout << "That model number is already in use. ";
+	MN = inputInt("Enter a model number: ");
+    }
 
     robomodel.setName(name);
     robomodel.setDescription(description);
@@ -637,13 +662,13 @@ void PRV(string &name, string &description,double &weight, double &cost, int &SN
     cin.getline(input,300);
     description = input;
 
-    //serial number
-    SN = inputInt("What is the Serial Number? ");
-
     //weight
     weight = inputDouble("What is the weight? ");
 
     //cost
     cost = inputDouble("What is the cost? "); 
+
+    //serial number
+    SN = inputInt("What is the Serial Number? ");
 }
 

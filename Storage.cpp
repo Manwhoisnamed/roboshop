@@ -252,6 +252,15 @@ RoboModel Storage::getRoboModel(int i){
     return Storage::robomodels.at(i);
 }
 
+RoboModel Storage::getRoboModelMN(int MN){
+    int i = 0;
+    for( i = 0; robomodels.size(); i++){
+	if(MN == robomodels.at(i).getMN()){
+	    return robomodels.at(i);
+	}
+    }
+}
+
 //this is the method that saves all of the info into a file
 void Storage::storeStorage(Storage storage){
     ofstream myfile;
@@ -511,3 +520,64 @@ void Storage::loadStorage(){
    }
    myfile.close();
 }
+
+bool Storage::checkLegs(int SN){
+    int i = 0; 
+    for(i = 0; i < legs.size(); i ++){
+	if(SN == legs.at(i).getSN()){
+	    return true;
+	}
+    }
+    return false;
+}
+
+bool Storage::checkArms(int SN){
+    int i = 0; 
+    for(i = 0; i < arms.size(); i ++){
+	if(SN == arms.at(i).getSN()){
+	    return true;
+	}
+    }
+    return false;
+}
+
+bool Storage::checkHeads(int SN){
+    int i = 0; 
+    for(i = 0; i < heads.size(); i ++){
+	if(SN == heads.at(i).getSN()){
+	    return true;
+	}
+    }
+    return false;
+}
+
+bool Storage::checkBatteries(int SN){
+    int i = 0; 
+    for(i = 0; i < Storage::batteries.size(); i ++){
+	if(SN == batteries.at(i).getSN()){
+	    return true;
+	}
+    }
+    return false;
+}
+
+bool Storage::checkTorsos(int SN){
+    int i = 0; 
+    for(i = 0; i < torsos.size(); i ++){
+	if(SN == torsos.at(i).getSN()){
+	    return true;
+	}
+    }
+    return false;
+}
+
+bool Storage::checkRoboModels(int MN){
+    int i = 0; 
+    for(i = 0; i < robomodels.size(); i ++){
+	if(MN == robomodels.at(i).getMN()){
+	    return true;
+	}
+    }
+    return false;
+}
+

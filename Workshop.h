@@ -19,11 +19,11 @@
   public:
     Workshop(){};
     Storage useWorkshop(Storage storage);    
-    Arm makeArm();
-    Leg makeLeg();
-    Battery makeBattery();
-    Torso makeTorso();
-    Head makeHead();
+    Arm makeArm(Storage storage);
+    Leg makeLeg(Storage storage);
+    Battery makeBattery(Storage storage);
+    Torso makeTorso(Storage storage);
+    Head makeHead(Storage storage);
     RoboModel makeRoboModel(Storage storage);
  };
  #endif

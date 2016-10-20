@@ -25,6 +25,9 @@ BATTERIES=====================
 39 3 3 80
 ihdfs
 garble
+123 500 0.001 70000
+party mcpart
+this part is the best budget battery we have
 -1
 ROBOMODELS====================
 torso-----------
